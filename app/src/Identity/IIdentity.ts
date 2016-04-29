@@ -2,6 +2,8 @@ import {IPermissaoObjeto} from './IPermissao';
 
 export interface IIdentity
 {
+    isAuthenticated :boolean,
+    
     nome: string,
     cpf: string;
     email: string;

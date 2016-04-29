@@ -1,9 +1,9 @@
-import {TokenDecoded} from '../TokenDecoded';
+import {TokenParsed} from '../TokenParsed';
 import {IIdentityTokenContent} from './IIdentityTokenContent';
 import {Token} from '../Token';
 import assign = require('object-assign');
 
-export class IdentityTokenDecoded extends TokenDecoded 
+export class IdentityTokenParsed extends TokenParsed 
 {
     public get conteudoObject() : IIdentityTokenContent {
         let token = new Token();
