@@ -7,7 +7,7 @@ var gulp_jasmine = require('gulp-jasmine');
 var gulp_sourcemaps = require('gulp-sourcemaps');
 var del = require('del');
 
-let tsProject = gulp_typescript.createProject('tsconfig.json');
+//let tsProject = gulp_typescript.createProject('tsconfig.json');
  
 let sourcemapsInline = false;
 
@@ -21,16 +21,16 @@ if(!sourcemapsInline) //if not inline, then write in file
  
 gulp.task('scripts', ['clean'], function() {
 	let tsResult = gulp.src('app/**/*.ts')
-					.pipe(gulp_typescript({module: "commonjs", target: "es5"}));
- 
+					.pipe(gulp_typescript({module: "commonjs", target: "es5", declaration: true}));
+  
 	return merge2([ // Merge the two output streams, so this task is finished when the IO of both operations are done. 
 		tsResult.dts
         .pipe(gulp_sourcemaps.init())
-        .pipe(gulp_sourcemaps.write('.', {includeContent: false, sourceRoot: '../../app'}))
+        .pipe(gulp_sourcemaps.write(sourcemapsConfig))
         .pipe(gulp.dest('dist/definitions')),
 		tsResult.js
         .pipe(gulp_sourcemaps.init())
-        .pipe(gulp_sourcemaps.write('.', {includeContent: false, sourceRoot: '../../app'}))
+        .pipe(gulp_sourcemaps.write(sourcemapsConfig))
         .pipe(gulp.dest('dist/js'))
 	]);
 });

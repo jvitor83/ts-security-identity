@@ -1,5 +1,5 @@
 import {ITokenDecoded} from './ITokenDecoded';
-import {Base64} from '../Utils/Base64';
+import {Base64} from '../../Utils/Base64';
 
 export class TokenDecoder
 {

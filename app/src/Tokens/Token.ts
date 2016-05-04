@@ -2,12 +2,12 @@ import {IToken} from './IToken';
 
 export class Token extends Array<{ key: string, value: any }> implements IToken
 {
-    get claims(): Array<{ key: string, value: any }>
-    {
-        let qualquer = (<any>this);
-        let retorno:Array<{ key: string, value: any }> = qualquer; 
-        return retorno;
-    }
+    // get claims(): Array<{ key: string, value: any }>
+    // {
+    //     let qualquer = (<any>this);
+    //     let retorno:Array<{ key: string, value: any }> = qualquer; 
+    //     return retorno;
+    // }
     
     has(key:string):boolean
     {
@@ -24,6 +24,13 @@ export class Token extends Array<{ key: string, value: any }> implements IToken
         return false;
     }
     
+    find(key:string): Array<any>
+    {
+        let itensFiltrados = this.filter((item) => item.key == key);
+        let valoresFiltrados = itensFiltrados.map((item) => item.value);
+        return valoresFiltrados;
+    }
+    
     findFirst<T>(key:string):T
     {
         let itensFiltrados = this.filter((item) => item.key == key);
@@ -31,34 +38,6 @@ export class Token extends Array<{ key: string, value: any }> implements IToken
         let item = itensFiltrados[0];
         
         return item.value;
-        //var itensValores = itensFiltrados.map((item) => item.value);
-        //return itensValores;
     }
     
-    
-    // has(value:string):boolean
-    // {
-    //     this.claims.indexOf({key:''});
-        
-        
-    //     let has = false;
-        
-    //     let jsonToken = (<any>this);
-        
-    //     if (typeof(jsonToken.attribute) !== 'undefined' && jsonToken.attribute !== null) {
-    //         has = true;
-    //     }
-        
-    //     return has;
-    // }
-    
-    // find<T>(value:string):T
-    // {
-    //     let retorno:T = null;
-                
-    //     let jsonToken = (<any>this);
-    //     retorno = jsonToken[value];
-        
-    //     return retorno;
-    // }
 }

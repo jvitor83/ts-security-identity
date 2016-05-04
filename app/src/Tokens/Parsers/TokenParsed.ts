@@ -1,7 +1,7 @@
 import {ITokenParsed} from './ITokenParsed';
-import {ITokenHeader} from './ITokenHeader';
-import {ITokenContent} from './ITokenContent';
-import {Token} from './Token';
+import {ITokenHeader} from '../ITokenHeader';
+import {ITokenContent} from '../ITokenContent';
+import {Token} from '../Token';
 //import * as assign from 'object-assign';
 import assign = require('object-assign');
 

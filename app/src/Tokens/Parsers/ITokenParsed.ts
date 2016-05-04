@@ -1,5 +1,5 @@
-import {ITokenHeader} from './ITokenHeader';
-import {ITokenContent} from './ITokenContent';
+import {ITokenHeader} from '../ITokenHeader';
+import {ITokenContent} from '../ITokenContent';
 
 export interface ITokenParsed
 {

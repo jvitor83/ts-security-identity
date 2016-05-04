@@ -1,4 +1,4 @@
-import {TokenParsed} from '../TokenParsed';
+import {TokenParsed} from '../Parsers/TokenParsed';
 import {IAccessTokenContent} from './IAccessTokenContent';
 import {Token} from '../Token';
 import assign = require('object-assign');

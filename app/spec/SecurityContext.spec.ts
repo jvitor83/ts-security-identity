@@ -1,5 +1,7 @@
 /// <reference path='../../typings/main.d.ts' />
 import {SecurityContext} from '../src/SecurityContext';
+import {PjmtIdentity} from '../src/Identities/PjmtIdentity';
+import {SecurityContextOpenIDInitializer} from '../src/SecurityContextOpenIDInitializer';
 
 describe('SecurityContext', () => {
     
@@ -14,34 +16,37 @@ describe('SecurityContext', () => {
 
     it('Init should instantiate a User', () => {
     
-        SecurityContext.Current.Init(accessToken, identityToken);
+        let securityContextInitializer = new SecurityContextOpenIDInitializer(accessToken, identityToken);
+        SecurityContext.Current.Init(securityContextInitializer);
     
         //SecurityContext.Current.User.permissoes.filter((permissao) => permissao.permissoes.some((perm) => perm == ""));
     
-        expect(SecurityContext.Current.User).toBeDefined();
+        expect(SecurityContext.Current.Principal).toBeDefined();
     
     });
     
     it('Init should have a User authenticated', () => {
         
-        SecurityContext.Current.Init(accessToken, identityToken);
-    
-        expect(SecurityContext.Current.User.isAuthenticated).toBeTruthy();
+        let securityContextInitializer = new SecurityContextOpenIDInitializer(accessToken, identityToken);
+        SecurityContext.Current.Init(securityContextInitializer);
+        
+        expect(SecurityContext.Current.Principal.IsAuthenticated).toBeTruthy();
     
     });
     
     
     it('User should have client_id', () => {
     
-        SecurityContext.Current.Init(accessToken, identityToken);
+        let securityContextInitializer = new SecurityContextOpenIDInitializer(accessToken, identityToken);
+        SecurityContext.Current.Init(securityContextInitializer);
     
-        expect(SecurityContext.Current.User.client_id).toBe('2380');
-    
+        expect((<PjmtIdentity>SecurityContext.Current.Principal.Identity).ClientID).toBe('2380');
+        
     });
     
     it('User should not be authenticated', () => {
         
-        expect(SecurityContext.Current.User.isAuthenticated).toBe(false);
+        expect(SecurityContext.Current.Principal.IsAuthenticated).toBe(false);
     
     });
 });
