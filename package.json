@@ -1,8 +1,8 @@
 {
-  "name": "security-identity-js",
+  "name": "security-identity",
   "version": "1.0.0",
   "description": "Identity JS Framework (slightly based on WIF)",
-  "main": "index.js",
+  "main": "dist/prod/js/src/security-identity.js",
   "scripts": {
     "test": "gulp test",
     "build": "gulp"
@@ -15,7 +15,8 @@
     "gulp-jasmine": "^2.3.0",
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-tslint": "^5.0.0",
-    "gulp-typescript": "^2.13.0",
+    "gulp-typescript": "^2.13.1",
+    "gulp-concat": "^2.6.0",
     "jasmine": "^2.4.1",
     "jasmine-core": "^2.4.1",
     "jasmine-node": "^1.14.5",

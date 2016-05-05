@@ -14,6 +14,7 @@
     "typescript": "registry:dt/typescript#0.4.0+20160317120654"
   },
   "ambientDevDependencies": {
+    "gulp-concat": "registry:dt/gulp-concat#0.0.0+20160316155526",
     "gulp-tslint": "registry:dt/gulp-tslint#3.6.0+20160316155526",
     "vinyl": "registry:dt/vinyl#1.1.0+20160316155526"
   }

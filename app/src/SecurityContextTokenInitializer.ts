@@ -2,18 +2,18 @@ import { SecurityContext } from './SecurityContext';
 import { ISecurityContextInitializer } from './ISecurityContextInitializer';
 
 import {IdentityFactory} from './Identities/IdentityFactory';
-import {PjmtIdentity} from './Identities/PjmtIdentity';
+import {Identity} from './Identities/Identity';
 
-export class SecurityContextJSONInitializer implements ISecurityContextInitializer
+export class SecurityContextTokenInitializer implements ISecurityContextInitializer
 {
-    constructor(public jsonArgs :any[]) 
+    constructor(public tokens :any[]) 
     {
-
+        
     }
     
     public Initialize(securityContext :SecurityContext)
     {
-        let userCreated = IdentityFactory.Create(PjmtIdentity, this.jsonArgs);
+        let userCreated = IdentityFactory.Create(Identity, this.tokens);
         securityContext.Principal.Identity = userCreated;
     }
 }

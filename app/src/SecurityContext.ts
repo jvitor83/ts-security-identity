@@ -4,8 +4,6 @@ import {Principal} from './Identities/Principal';
 import {ISecurityContextInitializer} from './ISecurityContextInitializer';
 
 
-// export namespace PJMT.Security
-// {
 export class SecurityContext 
 {
     private static _current: SecurityContext = null;
@@ -50,4 +48,3 @@ export class SecurityContext
         securityContextInitializer.Initialize(this);
     }
 }
-//}

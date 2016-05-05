@@ -6,6 +6,8 @@ var merge2 = require('merge2');
 var gulp_jasmine = require('gulp-jasmine');
 var gulp_sourcemaps = require('gulp-sourcemaps');
 var gulp_tslint = require('gulp-tslint');
+var gulp_concat = require('gulp-concat');
+
 //var tslint = require('tslint');
 var del = require('del');
 
@@ -23,17 +25,16 @@ if(!sourcemapsInline) //if not inline, then write in file
  
 gulp.task('scripts', ['clean', 'tslint'], function() {
 	let tsResult = gulp.src('app/**/*.ts')
-					.pipe(gulp_typescript({module: "commonjs", target: "es5", declaration: true}));
+                    .pipe(gulp_sourcemaps.init())
+					.pipe(gulp_typescript({module: "commonjs", target: "es5", declaration: true, sortOutput: true}));
   
 	return merge2([ // Merge the two output streams, so this task is finished when the IO of both operations are done. 
 		tsResult.dts
-        .pipe(gulp_sourcemaps.init())
         .pipe(gulp_sourcemaps.write(sourcemapsConfig))
-        .pipe(gulp.dest('dist/definitions')),
+        .pipe(gulp.dest('dist/dev/definitions')),
 		tsResult.js
-        .pipe(gulp_sourcemaps.init())
         .pipe(gulp_sourcemaps.write(sourcemapsConfig))
-        .pipe(gulp.dest('dist/js'))
+        .pipe(gulp.dest('dist/dev/js'))
 	]);
 });
 gulp.task('watch', ['scripts'], function() {
@@ -53,13 +54,32 @@ gulp.task('clean', function () {
 });
 
 
-gulp.task('build', [ 'scripts' ]);
+gulp.task('build', ['build:dev'], function() {
+    
+    let tsResult = gulp.src('app/src/**/*.ts')
+                .pipe(gulp_sourcemaps.init())
+                .pipe(gulp_typescript({module: "commonjs", target: "es5", declaration: true, sortOutput: true, removeComments: true}));
+  
+	return merge2([
+        tsResult.dts
+        .pipe(gulp_sourcemaps.write())
+        .pipe(gulp.dest('dist/prod/definitions/src')),
+
+		tsResult.js
+        .pipe(gulp_concat('security-identity.js'))
+        .pipe(gulp_sourcemaps.write())
+        .pipe(gulp.dest('dist/prod/js/src'))
+	]);
+    
+});
+
+gulp.task('build:dev', [ 'scripts' ]);
 
 gulp.task('default', [ 'build' ]);
 
 
 gulp.task('test', ['build'], function() {
     return gulp
-        .src('dist/js/spec/**/*.js')
+        .src('dist/dev/js/spec/**/*.js')
         .pipe(gulp_jasmine());
 });

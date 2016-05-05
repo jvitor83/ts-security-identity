@@ -3,24 +3,9 @@ import { IIdentity } from './IIdentity';
 
 export class Principal implements IPrincipal
 {
-    constructor(public Identity? :IIdentity, AuthenticationType? :string) 
+    constructor(public Identity? :IIdentity, public AuthenticationType :string = "Generic") 
     {
-        if(AuthenticationType == null)
-        {
-            this._AuthenticationType = "Generic";
-        }
-        else
-        {
-            this._AuthenticationType = AuthenticationType;
-        }
-    }
-    
-    
-    private _AuthenticationType: string;
-    
-    public get AuthenticationType(): string
-    {
-        return this._AuthenticationType;
+        
     }
     
     public get IsAuthenticated(): boolean

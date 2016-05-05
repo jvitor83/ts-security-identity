@@ -61,14 +61,6 @@ export class PjmtIdentity extends Identity
             
             let valor :Array<any> = data;
 		
-            // let valorDaPermissao = valor.map((val) => {
-            //     return {
-            //         sistema: sistemaId,
-            //         recurso: chave,
-            //         acao: val
-            //     };
-            // });
-            
             let retorno :IPermissaoObjeto = 
             {
                 id_sistema: sistemaId,
@@ -82,5 +74,4 @@ export class PjmtIdentity extends Identity
         return permissoes;
     }
     
-    //permissoes: IPermissaoObjeto[];
 }
