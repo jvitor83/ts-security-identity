@@ -1,4 +1,4 @@
-import {SecurityContext} from './SecurityContext'
+import {SecurityContext} from './SecurityContext';
 
 export interface ISecurityContextInitializer
 {

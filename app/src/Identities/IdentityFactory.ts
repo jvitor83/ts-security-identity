@@ -1,10 +1,5 @@
-//import {IPjmtAccessTokenContent} from '../Tokens/AccessToken/IPjmtAccessTokenContent';
-//import {IPjmtIdentityTokenContent} from '../Tokens/IdentityToken/IPjmtIdentityTokenContent';
-import {IToken} from '../Tokens/IToken';
 import {IIdentity} from './IIdentity';
 import {Identity} from './Identity';
-import {IPermissaoObjeto} from './IPermissao';
-import assign = require('object-assign');
 
 
 export abstract class IdentityFactory
@@ -14,9 +9,12 @@ export abstract class IdentityFactory
         return (<IIdentity>valor).Claims !== undefined;
     }
 
-    public static Create<T extends IIdentity>(userOrUserType? :T | { new(Claims:Array<{ key: string, value: any }>): T }, ...tokens :IToken[]):T
+    public static Create<T extends IIdentity>(userOrUserType? :T | { new(Claims:Array<{ key: string, value: any }>): T }, tokens? :any[]):T
     {
+        tokens = tokens instanceof Array ? tokens : [tokens];
+        
         let keyValuePairArray = IdentityFactory.GenerateKeyValuePair(tokens); 
+        
         
         let identity :IIdentity = null;
         if(userOrUserType == null)
@@ -37,15 +35,17 @@ export abstract class IdentityFactory
         
         keyValuePairArray.forEach((keyValuePair) =>
         {
-            let item = keyValuePair.value;
-            identity.Claims.push(item);
+            identity.Claims.push(keyValuePair);
         });
-       
+
         return <T>identity;
     }
     
-    private static GenerateKeyValuePair(tokens :IToken[]):Array<{ key: string, value: any }>
+    private static GenerateKeyValuePair(tokens :any[]):Array<{ key: string, value: any }>
     {
+        tokens = tokens instanceof Array ? tokens : [tokens];
+
+        
         let keyValuePairArray :Array<{key:string,value:any}> = new Array<{key:string,value:any}>(); 
         
         tokens.forEach((token) =>
@@ -58,8 +58,16 @@ export abstract class IdentityFactory
                     let novoItem = {
                         key : chave,
                         value : valor
+                    };
+                    
+                    if(token instanceof Array)
+                    {
+                        keyValuePairArray.push( valor );
                     }
-                    keyValuePairArray.push( novoItem );
+                    else
+                    {
+                        keyValuePairArray.push( novoItem );
+                    }
                 }
             }
         });

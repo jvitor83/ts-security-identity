@@ -1,12 +1,11 @@
 import { SecurityContext } from './SecurityContext';
 import { ISecurityContextInitializer } from './ISecurityContextInitializer';
 
-import {TokenDecoder} from './Tokens/Parsers/TokenDecoder';
 import {TokenParser} from './Tokens/Parsers/TokenParser';
-import {PjmtAccessTokenParsed} from './Tokens/AccessToken/PjmtAccessTokenParsed';
-import {PjmtIdentityTokenParsed} from './Tokens/IdentityToken/PjmtIdentityTokenParsed';
+import {ITokenParsed} from './Tokens/Parsers/ITokenParsed';
+import {IPjmtAccessTokenContent} from './Tokens/AccessToken/IPjmtAccessTokenContent';
+import {IPjmtIdentityTokenContent} from './Tokens/IdentityToken/IPjmtIdentityTokenContent';
 import {IdentityFactory} from './Identities/IdentityFactory';
-import {IPrincipal} from './Identities/IPrincipal';
 import {PjmtIdentity} from './Identities/PjmtIdentity';
 
 export class SecurityContextOpenIDInitializer implements ISecurityContextInitializer
@@ -18,27 +17,21 @@ export class SecurityContextOpenIDInitializer implements ISecurityContextInitial
     
     public Initialize(securityContext :SecurityContext)
     {
-        let accessTokenDecoder = new TokenDecoder(this.accessToken);
-        let accessTokenDecoded = accessTokenDecoder.Decode();
-
-        let accessTokenParser = new TokenParser(accessTokenDecoded);
-        let accessTokenParsed: PjmtAccessTokenParsed = accessTokenParser.Parse(PjmtAccessTokenParsed);
-
+        let accessTokenParser = new TokenParser(this.accessToken);
+        let accessTokenParsed = accessTokenParser.Parse();
+        
         //if is informed the identity token, then should use this as well
-        let identityTokenParsed: PjmtIdentityTokenParsed = null;
+        let identityTokenParsed:ITokenParsed = null;
         if (this.identityToken != null)
         {
-            let identityTokenDecoder = new TokenDecoder(this.identityToken);
-            let identityTokenDecoded = identityTokenDecoder.Decode();
-
-            let identityTokenParser = new TokenParser(identityTokenDecoded);
-            identityTokenParsed = identityTokenParser.Parse(PjmtIdentityTokenParsed);
+            let identityTokenParser = new TokenParser(this.identityToken);
+            identityTokenParsed = identityTokenParser.Parse();
         }
-
-        let accessTokenContent = accessTokenParsed.conteudoObject;
-        let identityTokenContent = identityTokenParsed.conteudoObject;
-
-        let userCreated = IdentityFactory.Create(PjmtIdentity, accessTokenContent, identityTokenContent);
+        
+        let accessTokenContent = accessTokenParsed.conteudoObject<IPjmtAccessTokenContent>();
+        let identityTokenContent = identityTokenParsed.conteudoObject<IPjmtIdentityTokenContent>();
+        
+        let userCreated = IdentityFactory.Create(PjmtIdentity, [accessTokenContent, identityTokenContent]);
         securityContext.Principal.Identity = userCreated;
     }
 }

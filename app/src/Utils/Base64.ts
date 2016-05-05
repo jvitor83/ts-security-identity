@@ -8,10 +8,11 @@ export class Base64
     
     public static Encode(value :string):string
     {
-        var str = String(value);
+        let str = String(value);
+        let output = '';
         for (
         // initialize result and counter
-        var block, charCode, idx = 0, map = this.chars, output = '';
+        let block, charCode, idx = 0, map = this.chars;
         // if the next str index does not exist:
         //   change the mapping table to "="
         //   check if d has no fractional digits
@@ -30,13 +31,14 @@ export class Base64
     
     public static Decode(value :string):string
     {
-        var str = String(value).replace(/=+$/, '');
-        if (str.length % 4 == 1) {
+        let output = '';
+        let str = String(value).replace(/=+$/, '');
+        if (str.length % 4 === 1) {
             throw new Error("'atob' failed: The string to be decoded is not correctly encoded.");
         }
         for (
         // initialize result and counters
-        var bc = 0, bs, buffer, idx = 0, output = '';
+        let bc = 0, bs, buffer, idx = 0;
         // get next character
         buffer = str.charAt(idx++);
         // character found in table? initialize bit storage and add its ascii value;

@@ -6,13 +6,15 @@
     "gulp": "registry:dt/gulp#3.8.0+20160316155526",
     "gulp-typescript": "registry:dt/gulp-typescript#0.0.0+20160317120654",
     "jasmine": "registry:dt/jasmine#2.2.0+20160412134438",
-    "karma": "registry:dt/karma#0.13.9+20160316155526",
     "merge2": "registry:dt/merge2#0.3.6+20160316155526",
     "node": "registry:dt/node#4.0.0+20160412142033",
-    "object-assign": "registry:dt/object-assign#4.0.1+20160316155526",
     "orchestrator": "registry:dt/orchestrator#0.0.0+20160316155526",
     "q": "registry:dt/q#0.0.0+20160417152954",
     "systemjs": "registry:dt/systemjs#0.18.4+20160417155658",
     "typescript": "registry:dt/typescript#0.4.0+20160317120654"
+  },
+  "ambientDevDependencies": {
+    "gulp-tslint": "registry:dt/gulp-tslint#3.6.0+20160316155526",
+    "vinyl": "registry:dt/vinyl#1.1.0+20160316155526"
   }
 }

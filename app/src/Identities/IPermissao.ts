@@ -1,7 +1,7 @@
 
 export interface IPermissaoObjeto
 {
-    id_sistema: number,
-    objeto: string,
-    permissoes: Array<string>
+    id_sistema: string;
+    objeto: string;
+    permissoes: Array<string>;
 }

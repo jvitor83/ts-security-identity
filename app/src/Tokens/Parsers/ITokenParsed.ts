@@ -5,11 +5,11 @@ export interface ITokenParsed
 {
     cabecalho: string;
     cabecalhoJSON: any;
-    cabecalhoObject: ITokenHeader;
+    cabecalhoObject<T extends ITokenHeader>(): T;
     
     conteudo: string;
     conteudoJSON: any;
-    conteudoObject: ITokenContent;
+    conteudoObject<T extends ITokenContent>(): T;
     
     assinatura: string;
 }

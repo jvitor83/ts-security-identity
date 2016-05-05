@@ -15,7 +15,7 @@ export class Identity implements IIdentity
     
     find<T>(key:string): Array<T>
     {
-        let itensFiltrados = this.Claims.filter((item) => item.key == key);
+        let itensFiltrados = this.Claims.filter((item) => item.key === key);
         let valoresFiltrados = itensFiltrados.map((item) => item.value);
         return valoresFiltrados;
     }
@@ -29,8 +29,8 @@ export class Identity implements IIdentity
     
     has(key:string):boolean
     {
-        let itensFiltrados = this.Claims.filter((item) => item.key == key);
-        if(itensFiltrados != null)
+        let itensFiltrados = this.Claims.filter((item) => item.key === key);
+        if(itensFiltrados !== null)
         {
             if(itensFiltrados.length > -1)
             {

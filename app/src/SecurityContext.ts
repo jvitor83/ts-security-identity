@@ -33,7 +33,7 @@ export class SecurityContext
     {
         IsAuthenticated: false,
         Identity: null
-    }
+    };
 
     public get Principal(): IPrincipal 
     {

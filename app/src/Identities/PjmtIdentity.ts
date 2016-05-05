@@ -46,25 +46,41 @@ export class PjmtIdentity extends Identity
     
     public get Permissoes() : Array<IPermissaoObjeto> 
     {
-        let permissoes = new Array<IPermissaoObjeto>();
-        
-        let claimsFiltered = this.Claims.filter((claim) => 
+        let permissoes = this.Claims.map((claim) => 
         {
-            let index = claim.key.indexOf('permissao|');
-            if(index > -1)
+            let key = claim.key;
+            let data = claim.value;
+            let match = /^permissao\|(.*?)(:(.*))?$/g.exec(key);
+            
+            let sistemaId = match[1];
+		    //let isObjeto = match[2] != null;
+            let chave = match[3] || "*"; 
+            
+            
+            data = data instanceof Array ? data : [data];
+            
+            let valor :Array<any> = data;
+		
+            // let valorDaPermissao = valor.map((val) => {
+            //     return {
+            //         sistema: sistemaId,
+            //         recurso: chave,
+            //         acao: val
+            //     };
+            // });
+            
+            let retorno :IPermissaoObjeto = 
             {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+                id_sistema: sistemaId,
+                objeto: chave,
+                permissoes: valor
+            };
+            
+            return retorno;
         });
-        
-        //TODO: 
         
         return permissoes;
     }
     
-    permissoes: IPermissaoObjeto[];
+    //permissoes: IPermissaoObjeto[];
 }

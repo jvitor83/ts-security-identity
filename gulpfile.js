@@ -5,11 +5,13 @@ var gulp_typescript = require('gulp-typescript');
 var merge2 = require('merge2');
 var gulp_jasmine = require('gulp-jasmine');
 var gulp_sourcemaps = require('gulp-sourcemaps');
+var gulp_tslint = require('gulp-tslint');
+//var tslint = require('tslint');
 var del = require('del');
 
 //let tsProject = gulp_typescript.createProject('tsconfig.json');
  
-let sourcemapsInline = false;
+let sourcemapsInline = true;
 
 
 
@@ -19,7 +21,7 @@ if(!sourcemapsInline) //if not inline, then write in file
     sourcemapsConfig = '.';
 }
  
-gulp.task('scripts', ['clean'], function() {
+gulp.task('scripts', ['clean', 'tslint'], function() {
 	let tsResult = gulp.src('app/**/*.ts')
 					.pipe(gulp_typescript({module: "commonjs", target: "es5", declaration: true}));
   
@@ -37,6 +39,14 @@ gulp.task('scripts', ['clean'], function() {
 gulp.task('watch', ['scripts'], function() {
     gulp.watch('app/**/*.ts', ['scripts']);
 });
+
+gulp.task("tslint", () =>
+    gulp.src("app/**/*.ts")
+        .pipe(gulp_tslint())
+        .pipe(gulp_tslint.report("verbose", {
+          emitError: true
+        }))
+);
 
 gulp.task('clean', function () {
   return del(['dist/']);

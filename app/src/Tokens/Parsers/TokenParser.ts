@@ -1,17 +1,28 @@
+import {ITokenParsed} from './ITokenParsed';
 import {TokenParsed} from './TokenParsed';
-import {ITokenDecoded} from './ITokenDecoded';
+import {Base64} from '../../Utils/Base64';
 
-export class TokenParser<T extends TokenParsed>
+export class TokenParser
 {
-    public constructor(public tokenDecoded :ITokenDecoded) {
+    static TOKEN_SEPARATOR :string = ".";
+    
+    public constructor(public token :string) {
         
     }
     
-    public Parse<T>(tokenParsedType: { new(cabecalho:string, conteudo:string, assinatura:string): T }):T
+    public Parse<T extends ITokenParsed>():T
     {
-        let tokenDecodedInstance = new tokenParsedType(this.tokenDecoded.cabecalho, this.tokenDecoded.conteudo, this.tokenDecoded.assinatura);
-        let tokenDecoded:T = tokenDecodedInstance;
+        let accessTokenSplitted = this.token.split(TokenParser.TOKEN_SEPARATOR);
         
-        return tokenDecoded;
+        let encodedHeader = accessTokenSplitted[0];
+        let encodedContent = accessTokenSplitted[1];
+        let encodedSignature = accessTokenSplitted[2];
+        
+        let header = Base64.Decode(encodedHeader);
+        let content = Base64.Decode(encodedContent);
+        let signature = Base64.Decode(encodedSignature);
+        
+        let tokenParsed = new TokenParsed(header, content, signature);
+        return <T>tokenParsed;
     }
 }
