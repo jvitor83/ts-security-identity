@@ -1,4 +1,6 @@
-export class Base64
+export default Base64;
+
+class Base64
 {
     static chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
     

@@ -1,8 +1,8 @@
 /// <reference path='../../../typings/main.d.ts' />
-import {IdentityFactory} from '../../src/Identities/IdentityFactory';
-import {IIdentity} from '../../src/Identities/IIdentity';
-import {Identity} from '../../src/Identities/Identity';
-import {TokenParser} from '../../src/Tokens/Parsers/TokenParser';
+import IdentityFactory from '../../src/Identities/IdentityFactory';
+import IIdentity from '../../src/Identities/IIdentity';
+import Identity from '../../src/Identities/Identity';
+import TokenParser from '../../src/Tokens/Parsers/TokenParser';
 
 
 describe('IdentityFactory', () => {

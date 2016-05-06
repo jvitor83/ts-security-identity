@@ -1,10 +1,11 @@
-import {SecurityContext} from './SecurityContext';
-import {ISecurityContextInitializer} from './ISecurityContextInitializer';
+import SecurityContext from './SecurityContext';
+import ISecurityContextInitializer from './ISecurityContextInitializer';
 
-import {SecurityContextTokenInitializer} from './SecurityContextTokenInitializer';
+import SecurityContextTokenInitializer from './SecurityContextTokenInitializer';
 
+export default SecurityContextInitializer;
 
-export abstract class SecurityContextInitializer
+abstract class SecurityContextInitializer
 {
     public static Create<T extends ISecurityContextInitializer>(typeOfSecurityContextInitializer :{ new(...args): T }, ...args): T
     {

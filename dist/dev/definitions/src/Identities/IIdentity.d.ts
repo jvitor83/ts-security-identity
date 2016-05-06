@@ -1,4 +1,5 @@
-export interface IIdentity {
+export default IIdentity;
+interface IIdentity {
     Claims: Array<{
         key: string;
         value: any;

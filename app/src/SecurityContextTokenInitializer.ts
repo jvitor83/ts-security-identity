@@ -1,10 +1,11 @@
-import {SecurityContext} from './SecurityContext';
+import SecurityContext from './SecurityContext';
 
-import {IdentityFactory} from './Identities/IdentityFactory';
-import {Identity} from './Identities/Identity';
+import IdentityFactory from './Identities/IdentityFactory';
+import Identity from './Identities/Identity';
 
+export default SecurityContextTokenInitializer;
 
-export class SecurityContextTokenInitializer implements SecurityContextTokenInitializer
+class SecurityContextTokenInitializer implements SecurityContextTokenInitializer
 {
     constructor(public tokens :any[]) 
     {

@@ -1,7 +1,9 @@
-import {ITokenHeader} from '../ITokenHeader';
-import {ITokenContent} from '../ITokenContent';
+import ITokenHeader from '../ITokenHeader';
+import ITokenContent from '../ITokenContent';
 
-export interface ITokenParsed
+export default ITokenParsed;
+
+interface ITokenParsed
 {
     header: string;
     headerJSON: any;

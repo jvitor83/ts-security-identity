@@ -1,6 +1,6 @@
 /// <reference path='../../typings/main.d.ts' />
-import {SecurityContext} from '../src/SecurityContext';
-import {SecurityContextInitializer} from '../src/SecurityContextInitializer';
+import SecurityContext from '../src/SecurityContext';
+import SecurityContextInitializer from '../src/SecurityContextInitializer';
 
 describe('SecurityContextInitializer', () => {
     

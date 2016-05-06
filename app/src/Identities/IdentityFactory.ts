@@ -1,7 +1,9 @@
-import {IIdentity} from './IIdentity';
-import {Identity} from './Identity';
+import IIdentity from './IIdentity';
+import Identity from './Identity';
 
-export abstract class IdentityFactory
+export default IdentityFactory;
+
+abstract class IdentityFactory
 {
     
     private static isIIdentity<T extends IIdentity>(valor: IIdentity | { new(Claims:Array<{ key: string, value: any }>): T }): valor is IIdentity 
@@ -75,3 +77,4 @@ export abstract class IdentityFactory
         return keyValuePairArray;
     }
 }
+

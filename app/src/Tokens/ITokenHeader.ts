@@ -1,6 +1,8 @@
-import {IToken} from './IToken';
+import IToken from './IToken';
 
-export interface ITokenHeader extends IToken
+export default ITokenHeader;
+
+interface ITokenHeader extends IToken
 {
     typ: string;
     alg: string;
