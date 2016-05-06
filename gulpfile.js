@@ -62,6 +62,7 @@ gulp.task('build', ['build:dev'], function() {
   
 	return merge2([
         tsResult.dts
+        .pipe(gulp_concat('security-identity.d.ts'))
         .pipe(gulp_sourcemaps.write())
         .pipe(gulp.dest('dist/prod/definitions/src')),
 

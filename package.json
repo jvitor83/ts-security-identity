@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A lightweight Typescript Security Identity Framework with Platform-Agnostic purposes (slightly based on WIF).",
   "main": "dist/prod/js/src/security-identity.js",
+  "typings": "dist/prod/definitions/src/security-identity.d.ts",
   "scripts": {
     "test": "gulp test",
     "build": "gulp"
