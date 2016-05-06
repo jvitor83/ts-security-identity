@@ -1,4 +1,3 @@
-/// <reference path="typings/main.d.ts" />
 declare module "Identities/IIdentity" {
     export interface IIdentity {
         Claims: Array<{
@@ -157,8 +156,7 @@ declare module "SecurityContextEncodedTokenInitializer" {
 }
 declare module "SecurityContextTokenInitializer" {
     import { SecurityContext } from "SecurityContext";
-    import { ISecurityContextInitializer } from "ISecurityContextInitializer";
-    export class SecurityContextTokenInitializer implements ISecurityContextInitializer {
+    export class SecurityContextTokenInitializer implements SecurityContextTokenInitializer {
         tokens: any[];
         constructor(tokens: any[]);
         Initialize(securityContext: SecurityContext): void;
