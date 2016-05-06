@@ -56,17 +56,22 @@ gulp.task('clean', function () {
 
 gulp.task('build', ['build:dev'], function() {
     
-    let tsResult = gulp.src('app/src/**/*.ts')
-                .pipe(gulp_sourcemaps.init())
-                .pipe(gulp_typescript({module: "commonjs", target: "es5", declaration: true, sortOutput: true, removeComments: true}));
+    
+  let tsConfig = gulp_typescript({module: "commonjs", target: "es5", declaration: true, removeComments: true, out: 'security-identity.js'});
   
 	return merge2([
-        tsResult.dts
-        .pipe(gulp_concat('security-identity.d.ts'))
+        gulp.src('app/src/**/*.ts')
+                .pipe(gulp_sourcemaps.init())
+                .pipe(tsConfig)
+                .dts
+        //.pipe(gulp_concat('security-identity.d.ts'))
         .pipe(gulp_sourcemaps.write())
         .pipe(gulp.dest('dist/prod/definitions/src')),
 
-		tsResult.js
+		gulp.src('app/src/**/*.ts')
+                .pipe(gulp_sourcemaps.init())
+                .pipe(gulp_typescript({module: "commonjs", target: "es5", declaration: true, removeComments: true }))
+                .js
         .pipe(gulp_concat('security-identity.js'))
         .pipe(gulp_sourcemaps.write())
         .pipe(gulp.dest('dist/prod/js/src'))
