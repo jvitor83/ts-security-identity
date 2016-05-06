@@ -1,4 +1,3 @@
-/// <reference path="typings/main.d.ts" />
 declare module "Identities/IIdentity" {
     export interface IIdentity {
         Claims: Array<{
@@ -157,8 +156,7 @@ declare module "SecurityContextEncodedTokenInitializer" {
 }
 declare module "SecurityContextTokenInitializer" {
     import { SecurityContext } from "SecurityContext";
-    import { ISecurityContextInitializer } from "ISecurityContextInitializer";
-    export class SecurityContextTokenInitializer implements ISecurityContextInitializer {
+    export class SecurityContextTokenInitializer implements SecurityContextTokenInitializer {
         tokens: any[];
         constructor(tokens: any[]);
         Initialize(securityContext: SecurityContext): void;
@@ -175,12 +173,6 @@ declare module "SecurityContextInitializer" {
         static InitializeWithEncodedTokens(encodedTokens: string[]): SecurityContext;
     }
 }
-declare module "Tokens/AccessToken/IAccessTokenContent" {
-    import { ITokenContent } from "Tokens/ITokenContent";
-    export interface IAccessTokenContent extends ITokenContent {
-        scope: string[];
-    }
-}
 declare module "Tokens/IdentityToken/IIdentityTokenContent" {
     import { ITokenContent } from "Tokens/ITokenContent";
     export interface IIdentityTokenContent extends ITokenContent {
@@ -189,5 +181,11 @@ declare module "Tokens/IdentityToken/IIdentityTokenContent" {
         at_hash: string;
         c_hash: string;
         sid: string;
+    }
+}
+declare module "Tokens/AccessToken/IAccessTokenContent" {
+    import { ITokenContent } from "Tokens/ITokenContent";
+    export interface IAccessTokenContent extends ITokenContent {
+        scope: string[];
     }
 }

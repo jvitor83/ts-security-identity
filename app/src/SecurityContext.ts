@@ -1,50 +1,48 @@
-///<reference path='../../typings/main.d.ts'/>
 import {IPrincipal} from './Identities/IPrincipal';
 import {Principal} from './Identities/Principal';
 import {ISecurityContextInitializer} from './ISecurityContextInitializer';
 
-
-export class SecurityContext 
-{
-    private static _current: SecurityContext = null;
-
-    public static get Current(): SecurityContext 
+    export class SecurityContext 
     {
-        if(SecurityContext._current === null)
+        private static _current: SecurityContext = null;
+
+        public static get Current(): SecurityContext 
         {
-            SecurityContext._current =  new SecurityContext();
+            if(SecurityContext._current === null)
+            {
+                SecurityContext._current =  new SecurityContext();
+            }
+            return SecurityContext._current;
         }
-        return SecurityContext._current;
-    }
-    
-    public static Reset()
-    {
-        SecurityContext._current = null;
-    }
+        
+        public static Reset()
+        {
+            SecurityContext._current = null;
+        }
 
-    constructor() 
-    {
-        this.Principal = new Principal();
-    }
+        constructor() 
+        {
+            this.Principal = new Principal();
+        }
 
-    private _Principal: IPrincipal = <any>
-    {
-        IsAuthenticated: false,
-        Identity: null
-    };
+        private _Principal: IPrincipal = <any>
+        {
+            IsAuthenticated: false,
+            Identity: null
+        };
 
-    public get Principal(): IPrincipal 
-    {
-        return this._Principal;
-    }
+        public get Principal(): IPrincipal 
+        {
+            return this._Principal;
+        }
 
-    public set Principal(value: IPrincipal) 
-    {
-        this._Principal = value;
-    }
+        public set Principal(value: IPrincipal) 
+        {
+            this._Principal = value;
+        }
 
-    public Init(securityContextInitializer :ISecurityContextInitializer)
-    {
-        securityContextInitializer.Initialize(this);
+        public Init(securityContextInitializer :ISecurityContextInitializer)
+        {
+            securityContextInitializer.Initialize(this);
+        }
     }
-}

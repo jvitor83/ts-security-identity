@@ -1,9 +1,10 @@
-import { IIdentity } from './IIdentity';
+import {IIdentity} from './IIdentity';
 
-export class IPrincipal
-{
-    Identity: IIdentity;
-    
-    IsAuthenticated: boolean;
-    AuthenticationType: string;
-}
+    export class IPrincipal
+    {
+        
+        Identity: IIdentity;
+        
+        IsAuthenticated: boolean;
+        AuthenticationType: string;
+    }

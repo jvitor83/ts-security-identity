@@ -1,22 +1,23 @@
-import { IPrincipal } from './IPrincipal';
-import { IIdentity } from './IIdentity';
+import {IPrincipal} from './IPrincipal';
+import {IIdentity} from './IIdentity';
 
-export class Principal implements IPrincipal
-{
-    constructor(public Identity? :IIdentity, public AuthenticationType :string = "Generic") 
+
+    export class Principal implements IPrincipal
     {
+        constructor(public Identity? :IIdentity, public AuthenticationType :string = "Generic") 
+        {
+            
+        }
         
-    }
-    
-    public get IsAuthenticated(): boolean
-    {
-        if (this.Identity != null)
+        public get IsAuthenticated(): boolean
         {
-            return true;
-        }
-        else
-        {
-            return false;
+            if (this.Identity != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
-}

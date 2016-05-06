@@ -1,10 +1,10 @@
-import { SecurityContext } from './SecurityContext';
-import { ISecurityContextInitializer } from './ISecurityContextInitializer';
+import {SecurityContext} from './SecurityContext';
 
 import {IdentityFactory} from './Identities/IdentityFactory';
 import {Identity} from './Identities/Identity';
 
-export class SecurityContextTokenInitializer implements ISecurityContextInitializer
+
+export class SecurityContextTokenInitializer implements SecurityContextTokenInitializer
 {
     constructor(public tokens :any[]) 
     {
@@ -17,3 +17,4 @@ export class SecurityContextTokenInitializer implements ISecurityContextInitiali
         securityContext.Principal.Identity = userCreated;
     }
 }
+    

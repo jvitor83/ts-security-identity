@@ -3,6 +3,7 @@ import {ISecurityContextInitializer} from './ISecurityContextInitializer';
 
 import {SecurityContextTokenInitializer} from './SecurityContextTokenInitializer';
 
+
 export abstract class SecurityContextInitializer
 {
     public static Create<T extends ISecurityContextInitializer>(typeOfSecurityContextInitializer :{ new(...args): T }, ...args): T

@@ -1,4 +1,3 @@
-/// <reference path="../../typings/main.d.ts" />
 import { IPrincipal } from './Identities/IPrincipal';
 import { ISecurityContextInitializer } from './ISecurityContextInitializer';
 export declare class SecurityContext {

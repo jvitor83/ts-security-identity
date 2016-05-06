@@ -12,7 +12,8 @@ var gulp_concat = require('gulp-concat');
 var del = require('del');
 
 //let tsProject = gulp_typescript.createProject('tsconfig.json');
- 
+let moduleGeneration = 'system';
+let targetGeneration = 'es5';
 let sourcemapsInline = true;
 
 
@@ -26,7 +27,7 @@ if(!sourcemapsInline) //if not inline, then write in file
 gulp.task('scripts', ['clean', 'tslint'], function() {
 	let tsResult = gulp.src('app/**/*.ts')
                     .pipe(gulp_sourcemaps.init())
-					.pipe(gulp_typescript({module: "commonjs", target: "es5", declaration: true, sortOutput: true}));
+					.pipe(gulp_typescript({module: moduleGeneration, target: targetGeneration, declaration: true, sortOutput: true}));
   
 	return merge2([ // Merge the two output streams, so this task is finished when the IO of both operations are done. 
 		tsResult.dts
@@ -57,7 +58,7 @@ gulp.task('clean', function () {
 gulp.task('build', ['build:dev'], function() {
     
     
-  let tsConfig = gulp_typescript({module: "commonjs", target: "es5", declaration: true, removeComments: true, out: 'security-identity.js'});
+  let tsConfig = gulp_typescript({module: moduleGeneration, target: targetGeneration, declaration: true, removeComments: true, out: 'security-identity.js'});
   
 	return merge2([
         gulp.src('app/src/**/*.ts')
@@ -70,9 +71,9 @@ gulp.task('build', ['build:dev'], function() {
 
 		gulp.src('app/src/**/*.ts')
                 .pipe(gulp_sourcemaps.init())
-                .pipe(gulp_typescript({module: "commonjs", target: "es5", declaration: true, removeComments: true }))
+                .pipe(tsConfig)
                 .js
-        .pipe(gulp_concat('security-identity.js'))
+        //.pipe(gulp_concat('security-identity.js'))
         .pipe(gulp_sourcemaps.write())
         .pipe(gulp.dest('dist/prod/js/src'))
 	]);

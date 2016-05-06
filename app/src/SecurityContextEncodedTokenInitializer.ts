@@ -5,6 +5,7 @@ import {TokenParser} from './Tokens/Parsers/TokenParser';
 import {IdentityFactory} from './Identities/IdentityFactory';
 import {Identity} from './Identities/Identity';
 
+
 export class SecurityContextEncodedTokenInitializer implements ISecurityContextInitializer
 {
     constructor(public encodedTokens :string[]) 
