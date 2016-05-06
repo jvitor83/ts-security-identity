@@ -1,10 +1,10 @@
-import IPrincipal from './Identities/IPrincipal';
-import Principal from './Identities/Principal';
-import ISecurityContextInitializer from './ISecurityContextInitializer';
+import {IPrincipal} from './Identities/IPrincipal';
+import {Principal} from './Identities/Principal';
+import {ISecurityContextInitializer} from './ISecurityContextInitializer';
 
-export default SecurityContext;
+//export default SecurityContext;
 
-class SecurityContext 
+export class SecurityContext 
 {
     private static _current: SecurityContext = null;
 

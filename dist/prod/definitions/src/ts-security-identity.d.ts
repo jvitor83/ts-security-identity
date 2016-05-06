@@ -1,6 +1,5 @@
 declare module "Identities/IIdentity" {
-    export default IIdentity;
-    interface IIdentity {
+    export interface IIdentity {
         Claims: Array<{
             key: string;
             value: any;
@@ -9,19 +8,17 @@ declare module "Identities/IIdentity" {
     }
 }
 declare module "Identities/IPrincipal" {
-    import IIdentity from "Identities/IIdentity";
-    export default IPrincipal;
-    class IPrincipal {
+    import { IIdentity } from "Identities/IIdentity";
+    export class IPrincipal {
         Identity: IIdentity;
         IsAuthenticated: boolean;
         AuthenticationType: string;
     }
 }
 declare module "Identities/Principal" {
-    import IPrincipal from "Identities/IPrincipal";
-    import IIdentity from "Identities/IIdentity";
-    export default Principal;
-    class Principal implements IPrincipal {
+    import { IPrincipal } from "Identities/IPrincipal";
+    import { IIdentity } from "Identities/IIdentity";
+    export class Principal implements IPrincipal {
         Identity: IIdentity;
         AuthenticationType: string;
         constructor(Identity?: IIdentity, AuthenticationType?: string);
@@ -29,10 +26,9 @@ declare module "Identities/Principal" {
     }
 }
 declare module "SecurityContext" {
-    import IPrincipal from "Identities/IPrincipal";
-    import ISecurityContextInitializer from "ISecurityContextInitializer";
-    export default SecurityContext;
-    class SecurityContext {
+    import { IPrincipal } from "Identities/IPrincipal";
+    import { ISecurityContextInitializer } from "ISecurityContextInitializer";
+    export class SecurityContext {
         private static _current;
         static Current: SecurityContext;
         static Reset(): void;
@@ -43,21 +39,18 @@ declare module "SecurityContext" {
     }
 }
 declare module "ISecurityContextInitializer" {
-    import SecurityContext from "SecurityContext";
-    export default ISecurityContextInitializer;
-    interface ISecurityContextInitializer {
+    import { SecurityContext } from "SecurityContext";
+    export interface ISecurityContextInitializer {
         Initialize(securityContext: SecurityContext): any;
     }
 }
 declare module "Tokens/IToken" {
-    export default IToken;
-    interface IToken {
+    export interface IToken {
     }
 }
 declare module "Tokens/ITokenHeader" {
-    import IToken from "Tokens/IToken";
-    export default ITokenHeader;
-    interface ITokenHeader extends IToken {
+    import { IToken } from "Tokens/IToken";
+    export interface ITokenHeader extends IToken {
         typ: string;
         alg: string;
         kid: string;
@@ -65,9 +58,8 @@ declare module "Tokens/ITokenHeader" {
     }
 }
 declare module "Tokens/ITokenContent" {
-    import IToken from "Tokens/IToken";
-    export default ITokenContent;
-    interface ITokenContent extends IToken {
+    import { IToken } from "Tokens/IToken";
+    export interface ITokenContent extends IToken {
         iss: string;
         aud: string;
         exp: number;
@@ -79,10 +71,9 @@ declare module "Tokens/ITokenContent" {
     }
 }
 declare module "Tokens/Parsers/ITokenParsed" {
-    import ITokenHeader from "Tokens/ITokenHeader";
-    import ITokenContent from "Tokens/ITokenContent";
-    export default ITokenParsed;
-    interface ITokenParsed {
+    import { ITokenHeader } from "Tokens/ITokenHeader";
+    import { ITokenContent } from "Tokens/ITokenContent";
+    export interface ITokenParsed {
         header: string;
         headerJSON: any;
         headerObject<T extends ITokenHeader>(): T;
@@ -93,10 +84,9 @@ declare module "Tokens/Parsers/ITokenParsed" {
     }
 }
 declare module "Tokens/Parsers/TokenParsed" {
-    import ITokenParsed from "Tokens/Parsers/ITokenParsed";
-    import ITokenHeader from "Tokens/ITokenHeader";
-    export default TokenParsed;
-    class TokenParsed implements ITokenParsed {
+    import { ITokenParsed } from "Tokens/Parsers/ITokenParsed";
+    import { ITokenHeader } from "Tokens/ITokenHeader";
+    export class TokenParsed implements ITokenParsed {
         header: string;
         content: string;
         signature: string;
@@ -108,8 +98,7 @@ declare module "Tokens/Parsers/TokenParsed" {
     }
 }
 declare module "Utils/Base64" {
-    export default Base64;
-    class Base64 {
+    export class Base64 {
         static chars: string;
         constructor();
         static Encode(value: string): string;
@@ -117,9 +106,8 @@ declare module "Utils/Base64" {
     }
 }
 declare module "Tokens/Parsers/TokenParser" {
-    import ITokenParsed from "Tokens/Parsers/ITokenParsed";
-    export default TokenParser;
-    class TokenParser {
+    import { ITokenParsed } from "Tokens/Parsers/ITokenParsed";
+    export class TokenParser {
         token: string;
         static TOKEN_SEPARATOR: string;
         constructor(token: string);
@@ -127,9 +115,8 @@ declare module "Tokens/Parsers/TokenParser" {
     }
 }
 declare module "Identities/Identity" {
-    import IIdentity from "Identities/IIdentity";
-    export default Identity;
-    class Identity implements IIdentity {
+    import { IIdentity } from "Identities/IIdentity";
+    export class Identity implements IIdentity {
         private _Claims;
         Claims: Array<{
             key: string;
@@ -146,9 +133,8 @@ declare module "Identities/Identity" {
     }
 }
 declare module "Identities/IdentityFactory" {
-    import IIdentity from "Identities/IIdentity";
-    export default IdentityFactory;
-    abstract class IdentityFactory {
+    import { IIdentity } from "Identities/IIdentity";
+    export abstract class IdentityFactory {
         private static isIIdentity<T>(valor);
         static Create<T extends IIdentity>(userOrUserType?: T | {
             new (Claims: Array<{
@@ -160,29 +146,26 @@ declare module "Identities/IdentityFactory" {
     }
 }
 declare module "SecurityContextEncodedTokenInitializer" {
-    import SecurityContext from "SecurityContext";
-    import ISecurityContextInitializer from "ISecurityContextInitializer";
-    export default SecurityContextEncodedTokenInitializer;
-    class SecurityContextEncodedTokenInitializer implements ISecurityContextInitializer {
+    import { SecurityContext } from "SecurityContext";
+    import { ISecurityContextInitializer } from "ISecurityContextInitializer";
+    export class SecurityContextEncodedTokenInitializer implements ISecurityContextInitializer {
         encodedTokens: string[];
         constructor(encodedTokens: string[]);
         Initialize(securityContext: SecurityContext): void;
     }
 }
 declare module "SecurityContextTokenInitializer" {
-    import SecurityContext from "SecurityContext";
-    export default SecurityContextTokenInitializer;
-    class SecurityContextTokenInitializer implements SecurityContextTokenInitializer {
+    import { SecurityContext } from "SecurityContext";
+    export class SecurityContextTokenInitializer implements SecurityContextTokenInitializer {
         tokens: any[];
         constructor(tokens: any[]);
         Initialize(securityContext: SecurityContext): void;
     }
 }
 declare module "SecurityContextInitializer" {
-    import SecurityContext from "SecurityContext";
-    import ISecurityContextInitializer from "ISecurityContextInitializer";
-    export default SecurityContextInitializer;
-    abstract class SecurityContextInitializer {
+    import { SecurityContext } from "SecurityContext";
+    import { ISecurityContextInitializer } from "ISecurityContextInitializer";
+    export abstract class SecurityContextInitializer {
         static Create<T extends ISecurityContextInitializer>(typeOfSecurityContextInitializer: {
             new (...args): T;
         }, ...args: any[]): T;
@@ -191,16 +174,14 @@ declare module "SecurityContextInitializer" {
     }
 }
 declare module "Tokens/AccessToken/IAccessTokenContent" {
-    import ITokenContent from "Tokens/ITokenContent";
-    export default IAccessTokenContent;
-    interface IAccessTokenContent extends ITokenContent {
+    import { ITokenContent } from "Tokens/ITokenContent";
+    export interface IAccessTokenContent extends ITokenContent {
         scope: string[];
     }
 }
 declare module "Tokens/IdentityToken/IIdentityTokenContent" {
-    import ITokenContent from "Tokens/ITokenContent";
-    export default IIdentityTokenContent;
-    interface IIdentityTokenContent extends ITokenContent {
+    import { ITokenContent } from "Tokens/ITokenContent";
+    export interface IIdentityTokenContent extends ITokenContent {
         nonce: string;
         iat: number;
         at_hash: string;

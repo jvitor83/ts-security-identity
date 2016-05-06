@@ -1,8 +1,8 @@
 //import {IPermissaoObjeto} from './IPermissao';
 
-export default IIdentity;
+//export default IIdentity;
 
-interface IIdentity
+export interface IIdentity
 {
     //new(Claims: Array<{ key: string, value: any }>);
     

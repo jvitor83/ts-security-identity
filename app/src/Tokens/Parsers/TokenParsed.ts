@@ -1,9 +1,9 @@
-import ITokenParsed from './ITokenParsed';
-import ITokenHeader from '../ITokenHeader';
+import {ITokenParsed} from './ITokenParsed';
+import {ITokenHeader} from '../ITokenHeader';
 
-export default TokenParsed;
+//export default TokenParsed;
 
-class TokenParsed implements ITokenParsed
+export class TokenParsed implements ITokenParsed
 {
     constructor(public header:string, public content:string, public signature:string) {
         

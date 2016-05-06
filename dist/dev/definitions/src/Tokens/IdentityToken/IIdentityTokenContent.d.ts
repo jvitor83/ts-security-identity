@@ -1,6 +1,5 @@
-import ITokenContent from '../ITokenContent';
-export default IIdentityTokenContent;
-interface IIdentityTokenContent extends ITokenContent {
+import { ITokenContent } from '../ITokenContent';
+export interface IIdentityTokenContent extends ITokenContent {
     nonce: string;
     iat: number;
     at_hash: string;

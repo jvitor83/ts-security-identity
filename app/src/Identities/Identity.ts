@@ -1,8 +1,8 @@
-import IIdentity from './IIdentity';
+import {IIdentity} from './IIdentity';
 
-export default Identity;
+//export default Identity;
 
-class Identity implements IIdentity
+export class Identity implements IIdentity
 {
     private _Claims : Array<{ key: string, value: any }>;
     public get Claims() : Array<{ key: string, value: any }> 

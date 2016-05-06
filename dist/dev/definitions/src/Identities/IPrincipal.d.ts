@@ -1,6 +1,5 @@
-import IIdentity from './IIdentity';
-export default IPrincipal;
-declare class IPrincipal {
+import { IIdentity } from './IIdentity';
+export declare class IPrincipal {
     Identity: IIdentity;
     IsAuthenticated: boolean;
     AuthenticationType: string;

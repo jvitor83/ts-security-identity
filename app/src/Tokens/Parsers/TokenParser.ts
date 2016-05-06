@@ -1,10 +1,10 @@
-import ITokenParsed from './ITokenParsed';
-import TokenParsed from './TokenParsed';
-import Base64 from '../../Utils/Base64';
+import {ITokenParsed} from './ITokenParsed';
+import {TokenParsed} from './TokenParsed';
+import {Base64} from '../../Utils/Base64';
 
-export default TokenParser;
+//export default TokenParser;
 
-class TokenParser
+export class TokenParser
 {
     static TOKEN_SEPARATOR :string = ".";
     

@@ -1,5 +1,4 @@
-import SecurityContext from './SecurityContext';
-export default ISecurityContextInitializer;
-interface ISecurityContextInitializer {
+import { SecurityContext } from './SecurityContext';
+export interface ISecurityContextInitializer {
     Initialize(securityContext: SecurityContext): any;
 }

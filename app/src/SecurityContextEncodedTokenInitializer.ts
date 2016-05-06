@@ -1,13 +1,13 @@
-import SecurityContext from './SecurityContext';
-import ISecurityContextInitializer from './ISecurityContextInitializer';
+import {SecurityContext} from './SecurityContext';
+import {ISecurityContextInitializer} from './ISecurityContextInitializer';
 
-import TokenParser from './Tokens/Parsers/TokenParser';
-import IdentityFactory from './Identities/IdentityFactory';
-import Identity from './Identities/Identity';
+import {TokenParser} from './Tokens/Parsers/TokenParser';
+import {IdentityFactory} from './Identities/IdentityFactory';
+import {Identity} from './Identities/Identity';
 
-export default SecurityContextEncodedTokenInitializer;
+//export default SecurityContextEncodedTokenInitializer;
 
-class SecurityContextEncodedTokenInitializer implements ISecurityContextInitializer
+export class SecurityContextEncodedTokenInitializer implements ISecurityContextInitializer
 {
     constructor(public encodedTokens :string[]) 
     {

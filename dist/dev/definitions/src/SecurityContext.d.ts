@@ -1,7 +1,6 @@
-import IPrincipal from './Identities/IPrincipal';
-import ISecurityContextInitializer from './ISecurityContextInitializer';
-export default SecurityContext;
-declare class SecurityContext {
+import { IPrincipal } from './Identities/IPrincipal';
+import { ISecurityContextInitializer } from './ISecurityContextInitializer';
+export declare class SecurityContext {
     private static _current;
     static Current: SecurityContext;
     static Reset(): void;

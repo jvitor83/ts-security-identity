@@ -1,8 +1,8 @@
-import IIdentity from './IIdentity';
+import {IIdentity} from './IIdentity';
 
-export default IPrincipal;
+//export default IPrincipal;
 
-class IPrincipal
+export class IPrincipal
 {
     
     Identity: IIdentity;

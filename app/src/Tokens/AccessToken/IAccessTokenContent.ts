@@ -1,8 +1,8 @@
-import ITokenContent from '../ITokenContent';
+import {ITokenContent} from '../ITokenContent';
 
-export default IAccessTokenContent;
+//export default IAccessTokenContent;
 
-interface IAccessTokenContent extends ITokenContent
+export interface IAccessTokenContent extends ITokenContent
 {
     scope: string[];
 }

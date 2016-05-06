@@ -1,6 +1,5 @@
-import IIdentity from './IIdentity';
-export default Identity;
-declare class Identity implements IIdentity {
+import { IIdentity } from './IIdentity';
+export declare class Identity implements IIdentity {
     private _Claims;
     Claims: Array<{
         key: string;

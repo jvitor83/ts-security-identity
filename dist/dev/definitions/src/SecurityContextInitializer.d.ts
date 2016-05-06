@@ -1,7 +1,6 @@
-import SecurityContext from './SecurityContext';
-import ISecurityContextInitializer from './ISecurityContextInitializer';
-export default SecurityContextInitializer;
-declare abstract class SecurityContextInitializer {
+import { SecurityContext } from './SecurityContext';
+import { ISecurityContextInitializer } from './ISecurityContextInitializer';
+export declare abstract class SecurityContextInitializer {
     static Create<T extends ISecurityContextInitializer>(typeOfSecurityContextInitializer: {
         new (...args): T;
     }, ...args: any[]): T;

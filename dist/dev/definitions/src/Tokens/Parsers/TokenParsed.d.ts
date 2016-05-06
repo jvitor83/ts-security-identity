@@ -1,7 +1,6 @@
-import ITokenParsed from './ITokenParsed';
-import ITokenHeader from '../ITokenHeader';
-export default TokenParsed;
-declare class TokenParsed implements ITokenParsed {
+import { ITokenParsed } from './ITokenParsed';
+import { ITokenHeader } from '../ITokenHeader';
+export declare class TokenParsed implements ITokenParsed {
     header: string;
     content: string;
     signature: string;

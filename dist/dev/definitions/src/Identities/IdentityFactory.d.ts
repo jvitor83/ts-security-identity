@@ -1,6 +1,5 @@
-import IIdentity from './IIdentity';
-export default IdentityFactory;
-declare abstract class IdentityFactory {
+import { IIdentity } from './IIdentity';
+export declare abstract class IdentityFactory {
     private static isIIdentity<T>(valor);
     static Create<T extends IIdentity>(userOrUserType?: T | {
         new (Claims: Array<{

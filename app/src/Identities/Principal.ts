@@ -1,9 +1,9 @@
-import IPrincipal from './IPrincipal';
-import IIdentity from './IIdentity';
+import {IPrincipal} from './IPrincipal';
+import {IIdentity} from './IIdentity';
 
-export default Principal;
+//export default Principal;
 
-class Principal implements IPrincipal
+export class Principal implements IPrincipal
 {
     constructor(public Identity? :IIdentity, public AuthenticationType :string = "Generic") 
     {

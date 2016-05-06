@@ -7,6 +7,7 @@ var gulp_jasmine = require('gulp-jasmine');
 var gulp_sourcemaps = require('gulp-sourcemaps');
 var gulp_tslint = require('gulp-tslint');
 var gulp_concat = require('gulp-concat');
+var dts_generator = require('dts-generator');
 
 //var tslint = require('tslint');
 var del = require('del');
@@ -24,7 +25,7 @@ if(!sourcemapsInline) //if not inline, then write in file
     sourcemapsConfig = '.';
 }
  
-gulp.task('scripts', ['clean', 'tslint'], function() {
+gulp.task('scripts', ['tslint'], function() {
 	let tsResult = gulp.src('app/**/*.ts')
                     .pipe(gulp_sourcemaps.init())
 					.pipe(gulp_typescript({module: moduleGeneration, target: targetGeneration, declaration: true, sortOutput: true}));
@@ -55,19 +56,35 @@ gulp.task('clean', function () {
 });
 
 
+gulp.task('dts-gen', function(cb) 
+{
+    return dts_generator.default({
+        name: 'ts-security-identity',
+        project: '.',
+        out: 'dist/prod/definitions/src/ts-security-identity.d.ts',
+        exclude: ['node_modules/**/*.d.ts', 'typings/**/*.d.ts']
+    })
+});
+
+
+
 gulp.task('build', ['build:dev'], function() {
     
     
-  let tsConfig = gulp_typescript({module: moduleGeneration, target: targetGeneration, declaration: true, removeComments: true, out: 'security-identity.js'});
+  let tsConfig = gulp_typescript({module: moduleGeneration, target: targetGeneration, declaration: true, removeComments: true, out: 'ts-security-identity.js'});
   
 	return merge2([
+        
         gulp.src('app/src/**/*.ts')
                 .pipe(gulp_sourcemaps.init())
                 .pipe(tsConfig)
                 .dts
         //.pipe(gulp_concat('security-identity.d.ts'))
         .pipe(gulp_sourcemaps.write())
-        .pipe(gulp.dest('dist/prod/definitions/src')),
+        .pipe(gulp.dest('dist/prod/definitions/src'))
+
+        
+        ,
 
 		gulp.src('app/src/**/*.ts')
                 .pipe(gulp_sourcemaps.init())

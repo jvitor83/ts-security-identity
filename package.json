@@ -2,8 +2,8 @@
   "name": "ts-security-identity",
   "version": "1.0.0",
   "description": "A lightweight Typescript Security Identity Framework with Platform-Agnostic purposes (slightly based on WIF).",
-  "main": "dist/prod/js/src/security-identity.js",
-  "typings": "dist/prod/definitions/src/security-identity.d.ts",
+  "main": "dist/prod/js/src/ts-security-identity.js",
+  "typings": "dist/prod/definitions/src/ts-security-identity.d.ts",
   "scripts": {
     "test": "gulp test",
     "build": "gulp"
@@ -12,12 +12,13 @@
   "license": "ISC",
   "devDependencies": {
     "del": "^2.2.0",
+    "dts-generator": "^1.7.0",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
     "gulp-jasmine": "^2.3.0",
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-tslint": "^5.0.0",
     "gulp-typescript": "^2.13.1",
-    "gulp-concat": "^2.6.0",
     "jasmine": "^2.4.1",
     "jasmine-core": "^2.4.1",
     "jasmine-node": "^1.14.5",
@@ -27,7 +28,5 @@
     "typescript": "^1.8.10",
     "typings": "^0.8.1"
   },
-  "dependencies": {
-    
-  }
+  "dependencies": {}
 }
