@@ -3,21 +3,21 @@ import {ITokenHeader} from '../ITokenHeader';
 
 export class TokenParsed implements ITokenParsed
 {
-    constructor(public cabecalho:string, public conteudo:string, public assinatura:string) {
+    constructor(public header:string, public content:string, public signature:string) {
         
     }
     
-    public get cabecalhoJSON() : any {
-        return JSON.parse(this.cabecalho);
+    public get headerJSON() : any {
+        return JSON.parse(this.header);
     }
-    public cabecalhoObject<T extends ITokenHeader>() : T {
-        return <T>this.cabecalhoJSON;
+    public headerObject<T extends ITokenHeader>() : T {
+        return <T>this.headerJSON;
     }
     
-    public get conteudoJSON() : any {
-        return JSON.parse(this.conteudo);
+    public get contentJSON() : any {
+        return JSON.parse(this.content);
     }
-    public conteudoObject<T extends ITokenHeader>() : T {
-        return <T>this.conteudoJSON;
+    public contentObject<T extends ITokenHeader>() : T {
+        return <T>this.contentJSON;
     }
 }

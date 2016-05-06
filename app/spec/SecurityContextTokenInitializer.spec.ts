@@ -18,6 +18,8 @@ describe('SecurityContextTokenInitializer', () => {
         SecurityContext.Current.Init(securityContextInitializer);
     
         //SecurityContext.Current.User.permissoes.filter((permissao) => permissao.permissoes.some((perm) => perm == ""));
+        
+        //let name = SecurityContext.Current.Principal.Identity.Claims.filter((claim) => claim.key === "name")[0].value;
     
         expect(SecurityContext.Current.Principal).toBeDefined();
     

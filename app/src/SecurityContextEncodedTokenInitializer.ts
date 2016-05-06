@@ -18,7 +18,7 @@ export class SecurityContextEncodedTokenInitializer implements ISecurityContextI
         {
             let tokenParser = new TokenParser(encodedToken);
             let tokenParsed = tokenParser.Parse();
-            let tokenContent = tokenParsed.conteudoJSON;
+            let tokenContent = tokenParsed.contentJSON;
             return tokenContent;
         });
         

@@ -3,13 +3,13 @@ import {ITokenContent} from '../ITokenContent';
 
 export interface ITokenParsed
 {
-    cabecalho: string;
-    cabecalhoJSON: any;
-    cabecalhoObject<T extends ITokenHeader>(): T;
+    header: string;
+    headerJSON: any;
+    headerObject<T extends ITokenHeader>(): T;
     
-    conteudo: string;
-    conteudoJSON: any;
-    conteudoObject<T extends ITokenContent>(): T;
+    content: string;
+    contentJSON: any;
+    contentObject<T extends ITokenContent>(): T;
     
-    assinatura: string;
+    signature: string;
 }

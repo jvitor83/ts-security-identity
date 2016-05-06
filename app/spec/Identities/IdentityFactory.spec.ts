@@ -43,7 +43,7 @@ describe('IdentityFactory', () => {
         let tokenParser = new TokenParser(accessToken);
         let tokenParsed = tokenParser.Parse();
 
-        let someToken = tokenParsed.conteudoObject();
+        let someToken = tokenParsed.contentObject();
         
         class IdentityCustomized extends Identity
         {

@@ -33,7 +33,7 @@ describe('SecurityContextInitializer', () => {
     
     it('InitializeWithTokens should instantiate a Principal', () => {
     
-        SecurityContextInitializer.InitializeWithEncodedTokens([accessToken]);
+        SecurityContextInitializer.InitializeWithTokens([accessToken]);
         
         expect(SecurityContext.Current.Principal).toBeDefined();
     
@@ -41,7 +41,7 @@ describe('SecurityContextInitializer', () => {
     
     it('InitializeWithTokens should have a User authenticated', () => {
         
-        SecurityContextInitializer.InitializeWithEncodedTokens([accessToken]);
+        SecurityContextInitializer.InitializeWithTokens([accessToken]);
         
         expect(SecurityContext.Current.Principal.IsAuthenticated).toBeTruthy();
     

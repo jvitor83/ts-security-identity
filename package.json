@@ -1,7 +1,7 @@
 {
-  "name": "security-identity",
+  "name": "ts-security-identity",
   "version": "1.0.0",
-  "description": "Identity JS Framework (slightly based on WIF)",
+  "description": "A lightweight Typescript Security Identity Framework with Platform-Agnostic purposes (slightly based on WIF).",
   "main": "dist/prod/js/src/security-identity.js",
   "scripts": {
     "test": "gulp test",
