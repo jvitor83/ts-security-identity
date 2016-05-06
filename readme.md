@@ -11,7 +11,10 @@ A lightweight Typescript Security Identity Framework with Platform-Agnostic purp
 	npm install --save ts-security-identity
 ```
 
-##  1.2 Initializing
+
+# 2. Using
+
+##  2.1 Initializing
 
 To initialize, is needed to invoke the proper Initialize method.
 
@@ -29,8 +32,7 @@ SecurityContextInitializer.InitializeWithTokens( [ token ] );
 ```
 
 
-
- ## 2. Authentication
+##  2.2 Authentication
  
  Check if the user is authenticated:
  
@@ -42,9 +44,9 @@ SecurityContextInitializer.InitializeWithTokens( [ token ] );
  
  
  
- ## 3. Identity
+##  2.3  Identity
 
-  Identity have a property of name Claims with type ``Array<{key:string,value:any}>`` who allow us to check against informations delivered by the tokens.
+  Identity have a property named Claims of type ``Array<{key:string,value:any}>`` who allow us to check against informations delivered by the tokens.
   
   **Sample:**
 ```typescript
