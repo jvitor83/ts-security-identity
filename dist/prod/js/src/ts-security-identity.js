@@ -490,21 +490,11 @@ System.register("SecurityContextInitializer", ["SecurityContext", "SecurityConte
         }
     }
 });
-System.register("ts-security-identity", ["SecurityContextInitializer"], function(exports_18, context_18) {
+System.register("Tokens/AccessToken/IAccessTokenContent", [], function(exports_18, context_18) {
     "use strict";
     var __moduleName = context_18 && context_18.id;
-    function exportStar_1(m) {
-        var exports = {};
-        for(var n in m) {
-            if (n !== "default") exports[n] = m[n];
-        }
-        exports_18(exports);
-    }
     return {
-        setters:[
-            function (SecurityContextInitializer_1_1) {
-                exportStar_1(SecurityContextInitializer_1_1);
-            }],
+        setters:[],
         execute: function() {
         }
     }
@@ -518,11 +508,49 @@ System.register("Tokens/IdentityToken/IIdentityTokenContent", [], function(expor
         }
     }
 });
-System.register("Tokens/AccessToken/IAccessTokenContent", [], function(exports_20, context_20) {
+System.register("ts-security-identity", ["SecurityContext", "SecurityContextEncodedTokenInitializer", "SecurityContextInitializer", "SecurityContextTokenInitializer", "Identities/Identity", "Identities/IdentityFactory", "Identities/IPrincipal", "Identities/Principal", "Tokens/Parsers/TokenParsed", "Tokens/Parsers/TokenParser"], function(exports_20, context_20) {
     "use strict";
     var __moduleName = context_20 && context_20.id;
+    function exportStar_1(m) {
+        var exports = {};
+        for(var n in m) {
+            if (n !== "default") exports[n] = m[n];
+        }
+        exports_20(exports);
+    }
     return {
-        setters:[],
+        setters:[
+            function (SecurityContext_2_1) {
+                exportStar_1(SecurityContext_2_1);
+            },
+            function (SecurityContextEncodedTokenInitializer_1_1) {
+                exportStar_1(SecurityContextEncodedTokenInitializer_1_1);
+            },
+            function (SecurityContextInitializer_1_1) {
+                exportStar_1(SecurityContextInitializer_1_1);
+            },
+            function (SecurityContextTokenInitializer_2_1) {
+                exportStar_1(SecurityContextTokenInitializer_2_1);
+            },
+            function (Identity_4_1) {
+                exportStar_1(Identity_4_1);
+                exportStar_1(Identity_4_1);
+            },
+            function (IdentityFactory_3_1) {
+                exportStar_1(IdentityFactory_3_1);
+            },
+            function (IPrincipal_1_1) {
+                exportStar_1(IPrincipal_1_1);
+            },
+            function (Principal_2_1) {
+                exportStar_1(Principal_2_1);
+            },
+            function (TokenParsed_2_1) {
+                exportStar_1(TokenParsed_2_1);
+            },
+            function (TokenParser_2_1) {
+                exportStar_1(TokenParser_2_1);
+            }],
         execute: function() {
         }
     }
