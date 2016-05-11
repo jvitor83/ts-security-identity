@@ -490,11 +490,21 @@ System.register("SecurityContextInitializer", ["SecurityContext", "SecurityConte
         }
     }
 });
-System.register("Tokens/AccessToken/IAccessTokenContent", [], function(exports_18, context_18) {
+System.register("ts-security-identity", ["SecurityContextInitializer"], function(exports_18, context_18) {
     "use strict";
     var __moduleName = context_18 && context_18.id;
+    function exportStar_1(m) {
+        var exports = {};
+        for(var n in m) {
+            if (n !== "default") exports[n] = m[n];
+        }
+        exports_18(exports);
+    }
     return {
-        setters:[],
+        setters:[
+            function (SecurityContextInitializer_1_1) {
+                exportStar_1(SecurityContextInitializer_1_1);
+            }],
         execute: function() {
         }
     }
@@ -502,6 +512,15 @@ System.register("Tokens/AccessToken/IAccessTokenContent", [], function(exports_1
 System.register("Tokens/IdentityToken/IIdentityTokenContent", [], function(exports_19, context_19) {
     "use strict";
     var __moduleName = context_19 && context_19.id;
+    return {
+        setters:[],
+        execute: function() {
+        }
+    }
+});
+System.register("Tokens/AccessToken/IAccessTokenContent", [], function(exports_20, context_20) {
+    "use strict";
+    var __moduleName = context_20 && context_20.id;
     return {
         setters:[],
         execute: function() {
