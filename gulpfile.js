@@ -72,7 +72,7 @@ gulp.task('dts-gen', function(cb)
 gulp.task('build', ['build:dev'], function() {
     
   let tsConfigDeclaration = gulp_typescript({module: moduleGeneration, target: targetGeneration, declaration: true, removeComments: true });  
-  let tsConfigOneFile = gulp_typescript({module: moduleGeneration, target: targetGeneration, declaration: true, removeComments: true, out: 'ts-security-identity.js'});
+  let tsConfigOneFile = gulp_typescript({module: moduleGeneration, target: targetGeneration, declaration: true, removeComments: true, out: 'index.js'});
   
 	return merge2([
         
