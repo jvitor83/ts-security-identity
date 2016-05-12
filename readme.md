@@ -6,9 +6,30 @@ A lightweight Typescript Security Identity Framework with Platform-Agnostic purp
 
 ##  1.1 Installing
 
-
+Install package from using npm
 ```sh
 	npm install --save ts-security-identity
+```
+
+##  1.2 Build
+
+Configure your build system to copy the .js files from `ts-security-identity/dist/prod/js/src/**/*.js` to your `dist/vendor/ts-security-identity` folder. 
+
+
+## 1.3 Configuring
+
+Recommendation to use [SystemJS](https://github.com/systemjs/systemjs) to load the package at runtime. 
+```javascript
+System.config({ 
+  map: {
+    'ts-security-identity': 'vendor/ts-security-identity/dist/prod/js/src/'
+  },
+  packages: {
+    'ts-security-identity': {
+      main: 'index.js'
+    }
+  }
+ });
 ```
 
 
@@ -64,5 +85,6 @@ SecurityContextInitializer.InitializeWithTokens( [ token ] );
     }
     
     let customizedIdentity :CustomizedIdentity = new CustomizedIdentity( [{ key: 'client_id', value: '2380' }] );
+    console.log(customizedIdentity.ClientId); // '2380'
     SecurityContext.Current.Principal.Identity = customizedIdentity;
 ```
