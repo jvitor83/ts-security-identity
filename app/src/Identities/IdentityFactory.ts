@@ -28,17 +28,17 @@ export abstract class IdentityFactory
             if(IdentityFactory.isIIdentity(userOrUserType))
             {
                 identity = userOrUserType;
+                
+                keyValuePairArray.forEach((keyValuePair) =>
+                {
+                    identity.Claims.push(keyValuePair);
+                });
             }
             else
             {
                 identity = new userOrUserType(keyValuePairArray);
             }
         }
-        
-        keyValuePairArray.forEach((keyValuePair) =>
-        {
-            identity.Claims.push(keyValuePair);
-        });
 
         return <T>identity;
     }

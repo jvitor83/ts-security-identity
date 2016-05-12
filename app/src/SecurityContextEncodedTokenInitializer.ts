@@ -23,7 +23,7 @@ export class SecurityContextEncodedTokenInitializer implements ISecurityContextI
             let tokenContent = tokenParsed.contentJSON;
             return tokenContent;
         });
-        
+                
         let userCreated = IdentityFactory.Create(Identity, decodedTokensContent);
         securityContext.Principal.Identity = userCreated;
     }

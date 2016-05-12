@@ -47,4 +47,13 @@ describe('SecurityContextInitializer', () => {
     
     });
     
+    
+    it('InitializeWithTokens should have a User authenticated', () => {
+        
+        SecurityContextInitializer.InitializeWithTokens( [ { name:'João Vitor' } ] );
+        
+        expect(SecurityContext.Current.Principal.Identity.Name).toBe('João Vitor');
+    
+    });
+    
 });
