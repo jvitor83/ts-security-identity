@@ -1,49 +1,17 @@
-System.register(['./SecurityContext', './SecurityContextEncodedTokenInitializer', './SecurityContextInitializer', './SecurityContextTokenInitializer', './Identities/Identity', './Identities/IdentityFactory', './Identities/IPrincipal', './Identities/Principal', './Tokens/Parsers/TokenParsed', './Tokens/Parsers/TokenParser'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    function exportStar_1(m) {
-        var exports = {};
-        for(var n in m) {
-            if (n !== "default") exports[n] = m[n];
-        }
-        exports_1(exports);
-    }
-    return {
-        setters:[
-            function (SecurityContext_1_1) {
-                exportStar_1(SecurityContext_1_1);
-            },
-            function (SecurityContextEncodedTokenInitializer_1_1) {
-                exportStar_1(SecurityContextEncodedTokenInitializer_1_1);
-            },
-            function (SecurityContextInitializer_1_1) {
-                exportStar_1(SecurityContextInitializer_1_1);
-            },
-            function (SecurityContextTokenInitializer_1_1) {
-                exportStar_1(SecurityContextTokenInitializer_1_1);
-            },
-            function (Identity_1_1) {
-                exportStar_1(Identity_1_1);
-                exportStar_1(Identity_1_1);
-            },
-            function (IdentityFactory_1_1) {
-                exportStar_1(IdentityFactory_1_1);
-            },
-            function (IPrincipal_1_1) {
-                exportStar_1(IPrincipal_1_1);
-            },
-            function (Principal_1_1) {
-                exportStar_1(Principal_1_1);
-            },
-            function (TokenParsed_1_1) {
-                exportStar_1(TokenParsed_1_1);
-            },
-            function (TokenParser_1_1) {
-                exportStar_1(TokenParser_1_1);
-            }],
-        execute: function() {
-        }
-    }
-});
+"use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+__export(require('./SecurityContext'));
+__export(require('./SecurityContextEncodedTokenInitializer'));
+__export(require('./SecurityContextInitializer'));
+__export(require('./SecurityContextTokenInitializer'));
+__export(require('./Identities/Identity'));
+__export(require('./Identities/IdentityFactory'));
+__export(require('./Identities/Identity'));
+__export(require('./Identities/IPrincipal'));
+__export(require('./Identities/Principal'));
+__export(require('./Tokens/Parsers/TokenParsed'));
+__export(require('./Tokens/Parsers/TokenParser'));
 
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvaW5kZXguanMiLCJzb3VyY2VzQ29udGVudCI6W119
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBQ0EsaUJBQWMsbUJBQW1CLENBQUMsRUFBQTtBQUNsQyxpQkFBYywwQ0FBMEMsQ0FBQyxFQUFBO0FBQ3pELGlCQUFjLDhCQUE4QixDQUFDLEVBQUE7QUFDN0MsaUJBQWMsbUNBQW1DLENBQUMsRUFBQTtBQUVsRCxpQkFBYyx1QkFBdUIsQ0FBQyxFQUFBO0FBQ3RDLGlCQUFjLDhCQUE4QixDQUFDLEVBQUE7QUFDN0MsaUJBQWMsdUJBQXVCLENBQUMsRUFBQTtBQUN0QyxpQkFBYyx5QkFBeUIsQ0FBQyxFQUFBO0FBQ3hDLGlCQUFjLHdCQUF3QixDQUFDLEVBQUE7QUFXdkMsaUJBQWMsOEJBQThCLENBQUMsRUFBQTtBQUM3QyxpQkFBYyw4QkFBOEIsQ0FBQyxFQUFBIiwiZmlsZSI6InNyYy9pbmRleC5qcyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCAqIGZyb20gJy4vSVNlY3VyaXR5Q29udGV4dEluaXRpYWxpemVyJztcclxuZXhwb3J0ICogZnJvbSAnLi9TZWN1cml0eUNvbnRleHQnO1xyXG5leHBvcnQgKiBmcm9tICcuL1NlY3VyaXR5Q29udGV4dEVuY29kZWRUb2tlbkluaXRpYWxpemVyJztcclxuZXhwb3J0ICogZnJvbSAnLi9TZWN1cml0eUNvbnRleHRJbml0aWFsaXplcic7XHJcbmV4cG9ydCAqIGZyb20gJy4vU2VjdXJpdHlDb250ZXh0VG9rZW5Jbml0aWFsaXplcic7XHJcblxyXG5leHBvcnQgKiBmcm9tICcuL0lkZW50aXRpZXMvSWRlbnRpdHknO1xyXG5leHBvcnQgKiBmcm9tICcuL0lkZW50aXRpZXMvSWRlbnRpdHlGYWN0b3J5JztcclxuZXhwb3J0ICogZnJvbSAnLi9JZGVudGl0aWVzL0lkZW50aXR5JztcclxuZXhwb3J0ICogZnJvbSAnLi9JZGVudGl0aWVzL0lQcmluY2lwYWwnO1xyXG5leHBvcnQgKiBmcm9tICcuL0lkZW50aXRpZXMvUHJpbmNpcGFsJztcclxuXHJcbmV4cG9ydCAqIGZyb20gJy4vVG9rZW5zL0lUb2tlbic7XHJcbmV4cG9ydCAqIGZyb20gJy4vVG9rZW5zL0lUb2tlbkNvbnRlbnQnO1xyXG5leHBvcnQgKiBmcm9tICcuL1Rva2Vucy9JVG9rZW5IZWFkZXInO1xyXG5cclxuZXhwb3J0ICogZnJvbSAnLi9Ub2tlbnMvQWNjZXNzVG9rZW4vSUFjY2Vzc1Rva2VuQ29udGVudCc7XHJcblxyXG5leHBvcnQgKiBmcm9tICcuL1Rva2Vucy9JZGVudGl0eVRva2VuL0lJZGVudGl0eVRva2VuQ29udGVudCc7XHJcblxyXG5leHBvcnQgKiBmcm9tICcuL1Rva2Vucy9QYXJzZXJzL0lUb2tlblBhcnNlZCc7XHJcbmV4cG9ydCAqIGZyb20gJy4vVG9rZW5zL1BhcnNlcnMvVG9rZW5QYXJzZWQnO1xyXG5leHBvcnQgKiBmcm9tICcuL1Rva2Vucy9QYXJzZXJzL1Rva2VuUGFyc2VyJztcclxuXHJcbiJdfQ==

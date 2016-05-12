@@ -13,7 +13,7 @@ var dts_generator = require('dts-generator');
 var del = require('del');
 
 //let tsProject = gulp_typescript.createProject('tsconfig.json');
-let moduleGeneration = 'system';
+let moduleGeneration = 'commonjs';
 let targetGeneration = 'es5';
 let sourcemapsInline = true;
 
@@ -72,7 +72,7 @@ gulp.task('dts-gen', function(cb)
 gulp.task('build', ['build:dev'], function() {
     
   let tsConfigDeclaration = gulp_typescript({module: moduleGeneration, target: targetGeneration, declaration: true, removeComments: true });  
-  let tsConfigOneFile = gulp_typescript({module: moduleGeneration, target: targetGeneration, declaration: true, removeComments: true, out: 'index.js'});
+  let tsConfigOneFile = gulp_typescript({module: moduleGeneration, target: targetGeneration, declaration: true, removeComments: true });
   
 	return merge2([
         
