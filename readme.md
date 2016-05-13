@@ -13,7 +13,7 @@ Install package from using npm
 
 ##  1.2 Build
 
-Configure your build system to copy the .js files from `ts-security-identity/dist/prod/js/src/**/*.js` to your `dist/vendor/ts-security-identity` folder. 
+Configure your build system to copy the files from `node_modules/ts-security-identity` to your `dist/vendor/ts-security-identity` folder. 
 
 
 ## 1.3 Configuring
@@ -29,6 +29,12 @@ System.config({
       main: 'index.js'
     }
   }
+ });
+```
+or
+```javascript
+System.config({ 
+  packageConfigPaths: ['vendor/ts-security-identity/package.json']
  });
 ```
 
