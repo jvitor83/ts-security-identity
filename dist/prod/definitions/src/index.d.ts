@@ -6,6 +6,7 @@ export * from './SecurityContextTokenInitializer';
 export * from './Identities/Identity';
 export * from './Identities/IdentityFactory';
 export * from './Identities/Identity';
+export * from './Identities/OAuthIdentity';
 export * from './Identities/IPrincipal';
 export * from './Identities/Principal';
 export * from './Tokens/IToken';
