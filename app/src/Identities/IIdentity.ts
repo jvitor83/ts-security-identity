@@ -10,4 +10,5 @@ export interface IIdentity
     
     Name: string;
     
+    IsAuthenticated: boolean;
 }

@@ -1,6 +1,6 @@
 {
   "name": "ts-security-identity",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A lightweight Typescript Security Identity Framework with Platform-Agnostic purposes (slightly based on WIF).",
   "main": "dist/prod/js/src/index.js",
   "typings": "dist/prod/definitions/src/index.d.ts",
@@ -25,7 +25,7 @@
     "merge2": "^1.0.2",
     "requirejs": "^2.2.0",
     "tslint": "^3.9.0",
-    "typescript": "^1.8.10",
+    "typescript": "2.0.2",
     "typings": "^0.8.1"
   },
   "dependencies": {}

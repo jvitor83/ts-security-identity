@@ -1,5 +1,6 @@
 import {IPrincipal} from './Identities/IPrincipal';
 import {Principal} from './Identities/Principal';
+import {Identity} from './Identities/Identity';
 import {ISecurityContextInitializer} from './ISecurityContextInitializer';
 
 //export default SecurityContext;
@@ -24,14 +25,11 @@ export class SecurityContext
 
     constructor() 
     {
-        this.Principal = new Principal();
+        let identity = new Identity();
+        this.Principal = new Principal(identity);
     }
 
-    private _Principal: IPrincipal = <any>
-    {
-        IsAuthenticated: false,
-        Identity: null
-    };
+    private _Principal: IPrincipal = null;
 
     public get Principal(): IPrincipal 
     {

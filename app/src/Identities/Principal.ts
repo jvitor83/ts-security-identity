@@ -5,20 +5,18 @@ import {IIdentity} from './IIdentity';
 
 export class Principal implements IPrincipal
 {
-    constructor(public Identity? :IIdentity, public AuthenticationType :string = "Generic") 
+    constructor(public Identity :IIdentity, public AuthenticationType :string = "Generic") 
     {
         
     }
     
     public get IsAuthenticated(): boolean
     {
-        if (this.Identity != null)
+        let isAuthenticated = false;
+        if(this.Identity)
         {
-            return true;
+            isAuthenticated = this.Identity.IsAuthenticated;
         }
-        else
-        {
-            return false;
-        }
+        return isAuthenticated;
     }
 }

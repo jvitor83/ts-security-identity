@@ -2,6 +2,7 @@
 import {IdentityFactory} from '../../src/Identities/IdentityFactory';
 import {IIdentity} from '../../src/Identities/IIdentity';
 import {Identity} from '../../src/Identities/Identity';
+import {OAuthIdentity} from '../../src/Identities/OAuthIdentity';
 import {TokenParser} from '../../src/Tokens/Parsers/TokenParser';
 
 
@@ -34,6 +35,17 @@ describe('IdentityFactory', () => {
         
         expect(usuarioRetornado.Cpf).toBe('0123456789');
         expect(usuarioRetornado.Name).toBe('Joao Vitor');
+    });
+
+    it('Should validate IsAuthenticated if has access_token claim', () => {
+        let someToken = { name:'Joao Vitor', access_token: 'whatever'};
+        
+        let usuario = new OAuthIdentity( someToken );
+        let usuarioRetornado = IdentityFactory.Create(usuario);
+        
+        expect(usuarioRetornado.IsAuthenticated).toBe(true);
+        expect(usuarioRetornado.AccessToken).toBe(someToken.access_token);
+        expect(usuarioRetornado.Name).toBe(someToken.name);
     });
     
     it('Should use a existing User and add news values from a token', () => {
