@@ -13,7 +13,7 @@ var dts_generator = require('dts-generator');
 var del = require('del');
 
 //let tsProject = gulp_typescript.createProject('tsconfig.json');
-let moduleGeneration = 'commonjs';
+let moduleGeneration = 'umd';
 let targetGeneration = 'es5';
 let sourcemapsInline = true;
 
