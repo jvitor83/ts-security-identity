@@ -1,6 +1,3 @@
-//export default IToken;
+// export default IToken;
 
-export interface IToken
-{
-    
-}
+// export interface IToken {}

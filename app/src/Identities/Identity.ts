@@ -1,73 +1,51 @@
 import {IIdentity} from './IIdentity';
 
-//export default Identity;
+// export default Identity;
 
-export class Identity implements IIdentity
-{ 
-    protected _Claims : Array<{ key: string, value: any }>;
-    public get Claims() : Array<{ key: string, value: any }> 
-    {
-        return this._Claims;
-    }
-    
-    constructor(Claims?: Array<{ key: string, value: any }> | any, private isAuthenticated = true) 
-    {
-        if(Claims != null)
-        {
-            if(Array.isArray(Claims))
-            {
-                this._Claims = Claims; 
-            }
-            else if(typeof Claims === 'object')
-            {
-                let arrayClaims = new Array<{ key: string, value: any }>();
-                for(let claim in Claims) 
-                {
-                    arrayClaims.push( { key : claim, value : Claims[claim] } );
-                }
-                this._Claims = arrayClaims;
-            }
+export class Identity implements IIdentity {
+  protected _Claims: Array<{key: string, value: any}>;
+  public get Claims(): Array<{key: string, value: any}> {
+    return this._Claims;
+  }
+
+  constructor(Claims?: Array<{key: string, value: any}> | any, private isAuthenticated = true) {
+    if (Claims != null) {
+      if (Array.isArray(Claims)) {
+        this._Claims = Claims;
+      } else if (typeof Claims === 'object') {
+        const arrayClaims = new Array<{key: string, value: any}>();
+        for (const claim of Object.keys(Claims)) {
+          arrayClaims.push({key: claim, value: Claims[claim]});
         }
-        else
-        {
-            this.isAuthenticated = false;
-            let arrayClaims = new Array<{ key: string, value: any }>();
-            this._Claims = arrayClaims;
-        }
+        this._Claims = arrayClaims;
+      }
+    } else {
+      this.isAuthenticated = false;
+      this._Claims = new Array<{key: string, value: any}>();
+    }
+  }
 
-        
-    }
-    
-    find<T>(key:string): Array<T>
-    {
-        let itensFiltrados = this.Claims.filter((item) => item.key === key);
-        let valoresFiltrados = itensFiltrados.map((item) => item.value);
-        return valoresFiltrados;
-    }
-    
-    findFirst<T>(key:string):T
-    {
-        let valoresFiltrados = this.find<T>(key);
-        let item = valoresFiltrados[0];
-        return item;
-    }
-    
-    has(key:string):boolean
-    {
-        let containItem = this.Claims.some((item) => item.key === key);
-        return containItem;
-    }
-    
-    public get Name() : string 
-    {
-        let name = this.findFirst<string>('name');
-        return name;
-    }
+  find<T>(key: string): Array<T> {
+    const itensFiltrados = this.Claims.filter((item) => item.key === key);
+    return itensFiltrados.map((item) => item.value);
+  }
 
-    public get IsAuthenticated() : boolean
-    {
-        return this.isAuthenticated;
-        // let containsAccessToken = this.Claims.some(claim => claim.key === 'access_token');
-        // return containsAccessToken;
-    }
+  findFirst<T>(key: string): T {
+    const valoresFiltrados = this.find<T>(key);
+    return valoresFiltrados[0];
+  }
+
+  has(key: string): boolean {
+    return this.Claims.some((item) => item.key === key);
+  }
+
+  public get Name(): string {
+    return this.findFirst<string>('name');
+  }
+
+  public get IsAuthenticated(): boolean {
+    return this.isAuthenticated;
+    // let containsAccessToken = this.Claims.some(claim => claim.key === 'access_token');
+    // return containsAccessToken;
+  }
 }

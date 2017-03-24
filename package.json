@@ -1,6 +1,6 @@
 {
   "name": "ts-security-identity",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A lightweight Typescript Security Identity Framework with Platform-Agnostic purposes (slightly based on WIF).",
   "main": "dist/prod/js/src/index.js",
   "typings": "dist/prod/definitions/src/index.d.ts",
@@ -24,7 +24,8 @@
     "jasmine-node": "^1.14.5",
     "merge2": "^1.0.2",
     "requirejs": "^2.2.0",
-    "tslint": "^3.9.0",
+    "tslint": "~4.5.0",
+    "codelyzer": "~2.0.0",
     "typescript": "2.0.2",
     "typings": "^0.8.1"
   },
