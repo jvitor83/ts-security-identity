@@ -11,7 +11,7 @@ export * from './Identities/OAuthIdentity';
 export * from './Identities/IPrincipal';
 export * from './Identities/Principal';
 
-export * from './Tokens/IToken';
+//export * from './Tokens/IToken';
 export * from './Tokens/ITokenContent';
 export * from './Tokens/ITokenHeader';
 

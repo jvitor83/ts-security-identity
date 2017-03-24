@@ -3,9 +3,9 @@ import { ITokenContent } from '../ITokenContent';
 export interface ITokenParsed {
     header: string;
     headerJSON: any;
-    headerObject<T extends ITokenHeader>(): T;
     content: string;
     contentJSON: any;
-    contentObject<T extends ITokenContent>(): T;
     signature: string;
+    headerObject<T extends ITokenHeader>(): T;
+    contentObject<T extends ITokenContent>(): T;
 }

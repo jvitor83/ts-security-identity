@@ -1,8 +1,8 @@
-import {IToken} from './IToken';
+//import {IToken} from './IToken';
 
 // export default ITokenContent;
 
-export interface ITokenContent extends {} {
+export interface ITokenContent {
   iss: string;
   aud: string;
   exp: number;

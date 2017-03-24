@@ -1,5 +1,4 @@
-import { IToken } from './IToken';
-export interface ITokenContent extends IToken {
+export interface ITokenContent {
     iss: string;
     aud: string;
     exp: number;
