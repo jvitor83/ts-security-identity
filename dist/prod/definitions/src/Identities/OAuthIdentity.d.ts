@@ -4,6 +4,6 @@ export declare class OAuthIdentity extends Identity {
         key: string;
         value: any;
     }> | any);
-    IsAuthenticated: boolean;
-    AccessToken: string;
+    readonly IsAuthenticated: boolean;
+    readonly AccessToken: string;
 }

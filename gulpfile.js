@@ -25,7 +25,7 @@ if(!sourcemapsInline) //if not inline, then write in file
     sourcemapsConfig = '.';
 }
  
-gulp.task('scripts', ['tslint'], function() {
+gulp.task('scripts', function() {
 	let tsResult = gulp.src('app/**/*.ts')
                     .pipe(gulp_sourcemaps.init())
 					.pipe(gulp_typescript({module: moduleGeneration, target: targetGeneration, declaration: true, sortOutput: true}));
@@ -43,13 +43,13 @@ gulp.task('watch', ['scripts'], function() {
     gulp.watch('app/**/*.ts', ['scripts']);
 });
 
-gulp.task("tslint", () =>
-    gulp.src("app/**/*.ts")
-        .pipe(gulp_tslint())
-        .pipe(gulp_tslint.report("verbose", {
-          emitError: true
-        }))
-);
+// gulp.task("tslint", () =>
+//     gulp.src("app/**/*.ts")
+//         .pipe(gulp_tslint())
+//         .pipe(gulp_tslint.report("verbose", {
+//           emitError: true
+//         }))
+// );
 
 gulp.task('clean', function () {
   return del(['dist/']);

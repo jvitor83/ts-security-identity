@@ -1,4 +1,3 @@
-/// <reference path='../../typings/main.d.ts' />
 import {SecurityContext} from '../src/SecurityContext';
 import {Identity} from '../src/Identities/Identity';
 //import {IdentityFactory} from '../src/Identities/IdentityFactory';
