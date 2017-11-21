@@ -1,4 +1,3 @@
-/// <reference path='../../../../typings/main.d.ts' />
 
 import {TokenParser} from '../../../src/Tokens/Parsers/TokenParser';
 describe('AccessTokenParser', () => {

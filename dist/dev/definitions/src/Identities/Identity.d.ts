@@ -5,7 +5,7 @@ export declare class Identity implements IIdentity {
         key: string;
         value: any;
     }>;
-    Claims: Array<{
+    readonly Claims: Array<{
         key: string;
         value: any;
     }>;
@@ -16,6 +16,6 @@ export declare class Identity implements IIdentity {
     find<T>(key: string): Array<T>;
     findFirst<T>(key: string): T;
     has(key: string): boolean;
-    Name: string;
-    IsAuthenticated: boolean;
+    readonly Name: string;
+    readonly IsAuthenticated: boolean;
 }

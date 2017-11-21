@@ -1,6 +1,6 @@
 {
   "name": "ts-security-identity",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "A lightweight Typescript Security Identity Framework with Platform-Agnostic purposes (slightly based on WIF).",
   "main": "dist/prod/js/src/index.js",
   "typings": "dist/prod/definitions/src/index.d.ts",
@@ -11,6 +11,8 @@
   "author": "João Vitor Paes de Barros do Carmo <jvitor83@hotmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "@types/jasmine": "^2.8.2",
+    "codelyzer": "~2.0.0",
     "del": "^2.2.0",
     "dts-generator": "^1.7.0",
     "gulp": "^3.9.1",
@@ -18,15 +20,14 @@
     "gulp-jasmine": "^2.3.0",
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-tslint": "^5.0.0",
-    "gulp-typescript": "^2.13.1",
+    "gulp-typescript": "3.1.0",
     "jasmine": "^2.4.1",
     "jasmine-core": "^2.4.1",
     "jasmine-node": "^1.14.5",
     "merge2": "^1.0.2",
     "requirejs": "^2.2.0",
     "tslint": "~4.5.0",
-    "codelyzer": "~2.0.0",
-    "typescript": "2.0.2",
+    "typescript": "2.4.2",
     "typings": "^0.8.1"
   },
   "dependencies": {}

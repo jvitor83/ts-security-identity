@@ -1,5 +1,6 @@
-import {ITokenParsed} from './ITokenParsed';
-import {ITokenHeader} from '../ITokenHeader';
+import { ITokenParsed } from './ITokenParsed';
+import { ITokenHeader } from '../ITokenHeader';
+import { ITokenContent } from '../ITokenContent';
 
 // export default TokenParsed;
 
@@ -20,7 +21,7 @@ export class TokenParsed implements ITokenParsed {
     return JSON.parse(this.content);
   }
 
-  public contentObject<T extends ITokenHeader>(): T {
+  public contentObject<T extends ITokenContent>(): T {
     return <T>this.contentJSON;
   }
 }
