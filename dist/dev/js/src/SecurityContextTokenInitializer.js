@@ -12,7 +12,7 @@
     var IdentityFactory_1 = require("./Identities/IdentityFactory");
     var Identity_1 = require("./Identities/Identity");
     // export default SecurityContextTokenInitializer;
-    var SecurityContextTokenInitializer = (function () {
+    var SecurityContextTokenInitializer = /** @class */ (function () {
         function SecurityContextTokenInitializer(tokens) {
             this.tokens = tokens;
         }

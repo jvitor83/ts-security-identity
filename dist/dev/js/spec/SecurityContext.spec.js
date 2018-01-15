@@ -51,7 +51,7 @@ var __extends = (this && this.__extends) || (function () {
             expect(SecurityContext_1.SecurityContext.Current.Principal.IsAuthenticated).toBe(false);
         });
         it('Should let a Customized Identity be set', function () {
-            var IdentityCustomized = (function (_super) {
+            var IdentityCustomized = /** @class */ (function (_super) {
                 __extends(IdentityCustomized, _super);
                 function IdentityCustomized() {
                     return _super !== null && _super.apply(this, arguments) || this;

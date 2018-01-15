@@ -10,7 +10,7 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // export default TokenParsed;
-    var TokenParsed = (function () {
+    var TokenParsed = /** @class */ (function () {
         function TokenParsed(header, content, signature) {
             this.header = header;
             this.content = content;

@@ -10,7 +10,7 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // export default Principal;
-    var Principal = (function () {
+    var Principal = /** @class */ (function () {
         function Principal(Identity, AuthenticationType) {
             if (AuthenticationType === void 0) { AuthenticationType = 'Generic'; }
             this.Identity = Identity;
