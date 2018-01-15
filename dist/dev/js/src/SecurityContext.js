@@ -12,7 +12,7 @@
     var Principal_1 = require("./Identities/Principal");
     var Identity_1 = require("./Identities/Identity");
     // export default SecurityContext;
-    var SecurityContext = (function () {
+    var SecurityContext = /** @class */ (function () {
         function SecurityContext() {
             this._Principal = null;
             var identity = new Identity_1.Identity();

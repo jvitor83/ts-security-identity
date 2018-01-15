@@ -12,7 +12,7 @@
     var TokenParsed_1 = require("./TokenParsed");
     var Base64_1 = require("../../Utils/Base64");
     // export default TokenParser;
-    var TokenParser = (function () {
+    var TokenParser = /** @class */ (function () {
         function TokenParser(token) {
             this.token = token;
         }

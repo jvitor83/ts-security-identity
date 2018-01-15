@@ -39,7 +39,7 @@ export abstract class IdentityFactory {
   private static GenerateKeyValuePair(tokens: any[]): Array<{key: string, value: any}> {
     tokens = tokens instanceof Array ? tokens : [tokens];
 
-    const keyValuePairArray: Array<{key: string, value: any}> = new Array<{key: string, value: any}>();
+    const keyValuePairArray: Array<{key: string, value: any}> = [];
 
     tokens.forEach((token) => {
       for (const chave of Object.keys(token)) {

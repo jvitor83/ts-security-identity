@@ -13,7 +13,7 @@ export class Identity implements IIdentity {
       if (Array.isArray(Claims)) {
         this._Claims = Claims;
       } else if (typeof Claims === 'object') {
-        const arrayClaims = new Array<{key: string, value: any}>();
+        const arrayClaims = [];
         for (const claim of Object.keys(Claims)) {
           arrayClaims.push({key: claim, value: Claims[claim]});
         }
@@ -21,7 +21,7 @@ export class Identity implements IIdentity {
       }
     } else {
       this.isAuthenticated = false;
-      this._Claims = new Array<{key: string, value: any}>();
+      this._Claims = [];
     }
   }
 

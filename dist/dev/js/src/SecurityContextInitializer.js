@@ -14,7 +14,7 @@
     var SecurityContextEncodedTokenInitializer_1 = require("./SecurityContextEncodedTokenInitializer");
     // import {ISecurityContextInitializer} from './ISecurityContextInitializer';
     // export default SecurityContextInitializer;
-    var SecurityContextInitializer = (function () {
+    var SecurityContextInitializer = /** @class */ (function () {
         function SecurityContextInitializer() {
         }
         // public static Create<T extends ISecurityContextInitializer>(typeOfSecurityContextInitializer :{ new(...args): T }, ...args): T

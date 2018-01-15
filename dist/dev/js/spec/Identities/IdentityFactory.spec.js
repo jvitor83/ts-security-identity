@@ -33,7 +33,7 @@ var __extends = (this && this.__extends) || (function () {
         });
         it('Should use a existing User and add news values', function () {
             var someToken = { name: 'Joao Vitor' };
-            var IdentityCustomized = (function (_super) {
+            var IdentityCustomized = /** @class */ (function (_super) {
                 __extends(IdentityCustomized, _super);
                 function IdentityCustomized() {
                     return _super !== null && _super.apply(this, arguments) || this;
@@ -66,7 +66,7 @@ var __extends = (this && this.__extends) || (function () {
             var tokenParser = new TokenParser_1.TokenParser(accessToken);
             var tokenParsed = tokenParser.Parse();
             var someToken = tokenParsed.contentObject();
-            var IdentityCustomized = (function (_super) {
+            var IdentityCustomized = /** @class */ (function (_super) {
                 __extends(IdentityCustomized, _super);
                 function IdentityCustomized() {
                     return _super !== null && _super.apply(this, arguments) || this;

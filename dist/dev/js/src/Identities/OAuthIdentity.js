@@ -20,7 +20,7 @@ var __extends = (this && this.__extends) || (function () {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var Identity_1 = require("./Identity");
-    var OAuthIdentity = (function (_super) {
+    var OAuthIdentity = /** @class */ (function (_super) {
         __extends(OAuthIdentity, _super);
         function OAuthIdentity(Claims) {
             return _super.call(this, Claims) || this;

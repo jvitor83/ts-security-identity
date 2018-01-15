@@ -10,7 +10,7 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // export default IPrincipal;
-    var IPrincipal = (function () {
+    var IPrincipal = /** @class */ (function () {
         function IPrincipal() {
         }
         return IPrincipal;
